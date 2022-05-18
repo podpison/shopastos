@@ -1,0 +1,258 @@
+{
+    "mainPage": {
+        "header": {
+            "article": "Fresh breath in corporate life",
+            "sign": "We have improved the ordering process so that you and your company can focus on the main tasks and achieve your goals.",
+            "advantages": {
+                "advantage1": "High quality ONLY",
+                "advantage2": "Manager support 24/7",
+                "advantage3": "Fulfillment of an order in Turbo-mode"
+            }
+        },
+        "mostPopularGoods": {
+            "article": "Most popular",
+            "sign": "Products most often ordered by our customers",
+            "link": "All goods"
+        },
+        "otherStuff": {
+            "article": "In addition to high quality finished products, we can produce for you clothes, accessories, goodies and more on order",
+            "sign": "Thanks to personal production, we produce large batches in a short time, and you always have the opportunity to customize products"
+        },
+        "weCooperateWith": {
+            "article": "They cooperate with us"
+        },
+        "kits": {
+            "article": "Do you want to surprise your colleagues / partners with unusual gifts?",
+            "sign": "Choose ready-made gift sets or indicate the criteria by which we will assemble a unique box for you",
+            "buttons": {
+                "button1": "Go to kits",
+                "button2": "Create your"
+            }
+        }
+    },
+    "kits": {
+        "article": "Ready-made kits",
+        "header": {
+            "article": "Gift kits are unusual......",
+            "sign": "Why? Because it is tangible and exciting. It engages, raises awareness and evokes emotions",
+            "buttons": {
+                "button1": "Choose a ready-made kit",
+                "button2": "Create your"
+            }
+        },
+        "orderKit": {
+            "article": "How to create a kit according to your idea?",
+            "sign": "Do you have your own unique idea for a kit, or do you want to style everything to the same look?"
+        }
+    },
+    "allGoods": {
+        "header": {
+            "article": "All goods",
+            "sign": "eng Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam velit maiores inventore neque. Aliquid, cumque corporis molestiae est repudiandae numquam! Nisi fuga expedita veritatis debitis architecto dolore sequi ex blanditiis. Tempora tempore fugiat repudiandae corrupti, facilis, saepe sapiente molestiae recusandae suscipit consequatur vitae neque perferendis itaque quam eligendi aliquid nulla, odit reprehenderit! Perspiciatis sit fugiat explicabo amet!"
+        },
+        "categories": {
+            "allGoods": "All goods"
+        }
+    },
+    "notFound": {
+        "sign1": "Not found",
+        "sign2": "Woops. Looks like this page doesn't exist",
+        "button": "Go to the main page"
+    },
+    "production": {
+        "header": {
+            "article": "Need to create a unique product for your company?",
+            "sign": "Why? Because it is tangible and it excites. It engages, raises awareness and evokes emotions",
+            "button": "Write to the manager"
+        },
+        "productionItemHeader": {
+            "button": "Order a miscalculation"
+        }
+    },
+    "sewing": {
+        "header": {
+            "article": "Modern merch creates modern brands",
+            "sign": "Why? Because it is tangible and it excites. It engages, raises awareness and evokes emotions. Our team always dives into the order concept in order to offer you the best solution while optimizing costs. We have a wide range of ready-made products, we can also make products according to your design",
+            "button": "Submit your application"
+        },
+        "sewingItemHeader": {
+            "button": "Order a miscalculation",
+            "sign": "Available sizes"
+        }
+    },
+    "contacts": {
+        "article1": "Contacts",
+        "article2": "Contact us",
+        "header": {
+            "article": "Who are Gifts & Merch?",
+            "sign": "Merchy is a team of creative gurus with corporate expertise. We know how exciting it can be to order branded products and corporate gifts, because we were on both sides of the order. This allowed us to study the problems of businesses and present the best and most modern solutions for our clients",
+            "links": {
+                "link1": "Frequently asked Questions",
+                "link2": "Contacts",
+                "link3": "Contact us"
+            }
+        },
+        "information": {
+            "descriptionItems": {
+                "item1": {
+                    "article": "Fresh breath in corporate life",
+                    "sign": "So, the Merchy site you see before you is the culmination of a 'perfect storm' of years of searching, honing, creating and combining our skills and experience. And now - here it is! We are very happy to share with you our range, our ideals and our passion"
+                },
+                "item2": {
+                    "article": "Relieve a headache",
+                    "sign": "Our goal is to save you the hassle. The choice and order of branded products should be pleasant, and all the complexities and specifics of production will remain behind the scenes. Be as productive as possible in your business and do not waste your energy on searches, tasks and control of contractors"
+                }
+            }
+        },
+        "FAQ": {
+            "article": "Frequently asked Questions",
+            "alt": "FAQ",
+            "items": {
+                "item1": {
+                    "article": "How to order",
+                    "sign": "eng Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem excepturi eius dignissimos id quos reprehenderit laboriosam delectus. Maxime molestiae laborum debitis aliquid deleniti, minus quae asperiores dolorem perferendis cum nulla earum quidem dolores temporibus nihil quia sunt, magni nobis nisi doloremque officiis harum enim adipisci! Voluptatem commodi quibusdam accusamus, aperiam corrupti, laudantium autem recusandae provident distinctio, accusantium architecto. Cupiditate laudantium ullam facere quidem architecto asperiores corporis inventore enim veritatis debitis"
+                },
+                "item2": {
+                    "article": "Payment and delivery",
+                    "sign": "eng Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt nostrum deserunt numquam molestias natus quia, quae consequatur labore porro voluptas eius sapiente aspernatur unde recusandae tenetur sequi iste. Esse officia optio consequuntur illo magnam veritatis obcaecati nostrum nesciunt distinctio itaque debitis eos, beatae, suscipit sunt doloremque labore cupiditate aperiam eius nisi vitae. Cumque amet rerum iusto magni vel, facere adipisci quidem ut nam facilis officiis harum distinctio quisquam non ad pariatur tempora, asperiores perferendis ipsam deserunt aperiam. Velit, ipsum? Ipsa iste eveniet vel voluptates aliquid maxime ea tempore est recusandae! Dolorum adipisci rem dicta doloribus hic officiis? Aperiam, excepturi debitis"
+                },
+                "item3": {
+                    "article": "Fresh breath in corporate life",
+                    "sign": "eng Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio, consequuntur earum temporibus ad nemo atque enim facilis, architecto, aspernatur nostrum vitae esse. Veritatis quos itaque impedit voluptate similique, alias perspiciatis dolorum ex quia. Id quis pariatur nobis praesentium. Velit perspiciatis accusamus repudiandae nemo, quaerat suscipit fugiat ducimus deserunt nostrum animi?"
+                }
+            }
+        }
+    },
+    "breadcrumbs": {
+        "mainPageLink": "Main"
+    },
+    "cards": {
+        "price": {
+            "priceSign": "Price",
+            "сurrencySign": "rub"
+        },
+        "availableSizesSign": "Available sizes",
+        "orderSign": "Order",
+        "characteristicsSign": "Characteristics"
+    },
+    "footer": {
+        "categoriesSign": "Categories",
+        "contactManagerForm": {
+            "article": "Contact manager",
+            "sign": "Have a question that hasn't been answered? Leave a contact and our manager will contact you"
+        },
+        "information": {
+            "article": "Information",
+            "aboutUsSign": "About us",
+            "FAQSign": "FAQ",
+            "contactsSign": "Contacts"
+        },
+        "logoSign": "Fresh breath in corporate life and corporate life fresh breath"
+    },
+    "goodsInformation": {
+        "textContainers": {
+            "container1": {
+                "article": "Production time",
+                "sign1": "Tailoring terms will depend on the volume of your order and the complexity of the models. On average, the production of corporate products takes from the moment all the details are approved",
+                "sign2": "If you need 'for yesterday' - you can agree on such conditions with your personal manager"
+            },
+            "container2": {
+                "article": "Price",
+                "sign1": "The cost of production of bered products to order is calculated individually. The price depends on the complexity of the work, branding, materials, circulation and urgency. We will find the best option for you according to your budget."
+            },
+            "container3": {
+                "article": "Branding",
+                "sign1": "The cost of production of bered products to order is calculated individually. The price depends on the complexity of the work, branding, materials, circulation and urgency. We will find the best option for you according to your budget."
+            }
+        }
+    },
+    "header": {
+        "computerHeader": {
+            "search": "Search"
+        },
+        "language": {
+            "rus": "RUS",
+            "eng": "ENG"
+        },
+        "navLinks": {
+            "main": "main",
+            "kits": "Kits",
+            "sewing": "Sewing",
+            "production": "Production",
+            "information": "Information"
+        },
+        "basketModal": {
+            "checkout": "Checkout",
+            "basket": "Basket",
+            "total": "Total",
+            "orderNumber": "Order number №",
+            "item": {
+                "size": "The size",
+                "amount": "Amount"
+            }
+        }
+    },
+    "orderCustomMerch": {
+        "article": "Do you have your own UNIQUE merchandise idea?",
+        "sign": "We will make merch according to your design. We will tell you life hacks and familiarize you with the production technology, provide samples of materials"
+    },
+    "userCredentialsForm": {
+        "sign": "Enter your contact details and our manager will contact you within 15 minutes",
+        "button": "Order",
+        "fields": {
+            "name": "Your name",
+            "email": "Your email",
+            "phone": "Your phone"
+        }
+    },
+    "whatWeCanDo": {
+        "article": {
+            "part1": "We can",
+            "part2v1": "sew",
+            "part2v2": "create"
+        },
+        "sign": "Products most often ordered by our customers",
+        "itemContent": {
+            "sign": "How to order",
+            "itemContainers": {
+                "container1": {
+                    "article": "Material"
+                },
+                "container2": {
+                    "article": "Painting types"
+                },
+                "container3": {
+                    "article": "Product care"
+                }
+            }
+        }
+    },
+    "alts": {
+        "product": "Product",
+        "basket": "Basket",
+        "basketItem": "Basket item",
+        "close": "Close",
+        "logo": "Logo",
+        "goodWithDiscount": "Good with discount",
+        "humanInProduct": "Human in product",
+        "good": "Good",
+        "stuff": "Stuff",
+        "logoOfTheBrandWeCooperatiedWith": "Logo of the brand we cooperatied with",
+        "kit": "Kit",
+        "rainbowSign": "Rainbow sign",
+        "removeGood": "Remove good",
+        "orderCustomMerch": {
+            "lamp": "Lamp",
+            "firstRocket": "The first rocket",
+            "secondRocket": "The second rocket"
+        }
+    },
+    "form": {
+        "wrongFormat": "Wrong format",
+        "required": "Required",
+        "tooLong": "Too long"
+    },
+    "goodWithDiscount": {
+        "withDiscount": "with discount"
+    }
+}

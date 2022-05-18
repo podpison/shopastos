@@ -1,0 +1,117 @@
+$maxWidth: 1920;
+$mainBlackColor: #272525;
+$grayColor: #454747;
+
+@mixin container {
+  max-width: 1630px;
+  margin: 0 auto;
+  padding: 0 15px;
+  @media screen and (max-width: 1700px) {
+    max-width: 1550px;
+  }
+  @media screen and (max-width: 1600px) {
+    max-width: 1500px;
+  }
+  @media screen and (max-width: 1500px) {
+    max-width: 1420px;
+  }
+  @media screen and (max-width: 1400px) {
+    max-width: 1320px;
+  }
+  @media screen and (max-width: 1300px) {
+    max-width: 1220px;
+  }
+  @media screen and (max-width: 1200px) {
+    max-width: 1150px;
+  }
+  @media screen and (max-width: 1100px) {
+    max-width: 1050px;
+  }
+}
+
+@mixin customBackground($background) {
+  background-color: $background;
+  width: 100vw;
+  & > div {
+    @include container;
+  }
+}
+
+@mixin adaptiveValue($property, $startSize, $minSize) {
+  $addSize: $startSize - $minSize;
+  #{$property}: $startSize + px;
+  @media (max-width: #{$maxWidth + px}) {
+      #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
+  }
+}
+
+@mixin waveData($height, $waveName) {
+  content: '';
+  width: 100%;
+  height: $height;
+  position: absolute;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url('./static/img/waves/' + $waveName);
+}
+@mixin waveCreator($height, $waveNumber, $isTopWaveRequired: false, $filterForBottom: none, $filterForTop: none, $topWaveTopValue: false) {
+  $waveName: 'wave' + $waveNumber + '.svg';
+  position: relative;
+  &::after {
+    @include waveData($height, $waveName);
+    bottom: -3px;
+    filter: $filterForBottom;
+    @media screen and (max-width: 440px) {
+      width: 181%;
+      margin-left: -80%;
+    }
+  }
+  @if $isTopWaveRequired {
+    &::before {
+      @include waveData($height, $waveName);
+      @if $topWaveTopValue {
+        top: $topWaveTopValue;
+      } @else {
+        top: calc(-#{$height} + 1px);
+      }
+      filter: $filterForTop;
+    }
+  }
+}
+@mixin article($isItHeaderArticle: false) {
+  @include adaptiveValue('font-size', 50, 25);
+  font-weight: 700;
+  @if $isItHeaderArticle {
+    text-transform: uppercase;
+    font-weight: 900;
+  }
+}
+@mixin h3 {
+  @include adaptiveValue('font-size', 36, 24);
+  font-weight: 700;
+  line-height: 130%;
+}
+@mixin sign($isSignBig: false) {
+  @include adaptiveValue('font-size', 18, 15);
+  @if ($isSignBig) {
+    @include adaptiveValue('font-size', 24, 20);
+  }
+  line-height: 130%;
+  letter-spacing: 0.065em;
+}
+
+@mixin TextFieldError {
+  p {
+    position: absolute;
+    right: 0;
+    bottom: -20px;
+    font-family: "gilroy";
+    margin: 0;
+  }
+}
+
+body {
+  color: $mainBlackColor;
+  font-family: 'gilroy';
+  overflow-x: hidden;
+}

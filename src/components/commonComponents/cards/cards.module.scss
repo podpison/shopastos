@@ -1,0 +1,209 @@
+@import "./../../../app.module.scss";
+
+@mixin signsFontSize {
+    @include adaptiveValue('font-size', 24, 18);
+    font-weight: 600;
+}
+
+.mainContainer {
+    .article {
+        @include article;
+    }
+    .cardsContainer {
+        @include adaptiveValue('margin-top', 40, 10);
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 35px;
+        @media screen and (max-width: 1400px) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        @media screen and (max-width: 899px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @media screen and (max-width: 600px) {
+            grid-template-columns: 1fr;
+        }
+        .cardContainer {
+            border-radius: 15px;
+            .media {
+                @include adaptiveValue('height', 380, 250);
+                background-color: #F1F1F8;
+                object-fit: initial;
+            }
+            .content {
+                .name {
+                    @include signsFontSize;
+                }
+            }
+            .actions {
+                justify-content: space-between;
+                padding: 8px 16px;
+                .price {
+                    @include signsFontSize;
+                    color: #C4C4C4;
+                }
+                .basket {
+                    @include adaptiveValue('width', 45, 34);
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    .pagination {
+        margin-top: 25px;
+    }
+}
+.withPopUpContainer {
+    overflow: scroll;
+    .withPopUp {
+        display: grid;
+        grid-template-columns: minmax(0, 3fr) minmax(0, 4fr);
+        gap: 55px;
+        width: 1040px;
+        height: 625px;
+        border-radius: 25px;
+        background-color: white;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        padding: 30px;
+        font-family: 'gilroy';
+        @media screen and (max-width: 1200px) {
+            width: 90%;
+            grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+        }
+        .closeIcon {
+            @include adaptiveValue('width', 50, 20);
+            position: absolute;
+            right: 0;
+            top: 0;
+            margin: 1.5% 1.5% 0 0;
+            cursor: pointer;
+        }
+        & > div > ul { //dots container
+            position: initial;
+            text-align: left;
+            display: grid!important;
+            gap: 10px;
+            grid-template-columns: repeat(5, 1fr);
+            margin-top: 5px;
+            li {
+                width: 100%;
+                height: 100%;
+                opacity: 0.7;
+                margin: 0;
+            }
+            li[class='slick-active'] {
+                opacity: 1;
+            }
+        }
+        & > div > button { //arrows
+            width: 40px;
+            height: 40px;
+            z-index: 1;
+            right: 4%;
+            &::before {
+                font-size: 40px;
+            }
+            &:first-child {
+                left: 4%;
+                right: 0;
+            }
+        }
+        .carousel {
+            & div[class="slick-list"] img {
+                height: 49vh;
+                max-width: 530px;
+            }
+            .pagingItem {
+                height: 70px;
+                width: 100%;
+            }
+        }
+        .contentContainer {
+            .name {
+                @include adaptiveValue('font-size', 32, 18);
+                font-weight: 700;
+                text-transform: uppercase;
+                display: block;
+            }
+            .price {
+                @include adaptiveValue('font-size', 24, 18);
+                font-weight: 600;
+                margin-top: 4.5%;
+            }
+            .description {
+                line-height: 130%;
+                color: $grayColor;
+                margin-top: 2%;
+            }
+            .componentAndButtonAndDescriptionContainer {
+                margin-top: 4.5%;
+                .componentAndButtonContainer {
+                    display: flex;
+                    justify-content: space-between;
+                    .sizesContainer {
+                        .sign {
+                            font-size: 18px;
+                            font-weight: 600;
+                        }
+                        .sizes {
+                            margin-top: 5%;
+                            display: flex;
+                            align-items: center;
+                            .size {
+                                color: #524983;
+                                font-size: 14px;
+                                cursor: pointer;
+                                &:not(:first-child) {
+                                    margin-left: 20px;
+                                }
+                                &.activeSize {
+                                    color: $mainBlackColor;
+                                    font-size: 16px;
+                                    font-weight: 600;
+                                }
+                            }
+                        }
+                    }
+                }
+                .characteristicsContainer {
+                    box-shadow: none;
+                    margin-top: 5%;
+                    color: $mainBlackColor;
+                    &::before {
+                        display: none;
+                    }
+                    .sign {
+                        font-weight: 600;
+                        font-size: 18px;
+                        justify-content: flex-start;
+                        min-height: unset;
+                        padding-left: 0;
+                        div:first-child { //name
+                            flex-grow: initial;
+                            margin: 0;
+                        }
+                        div:last-child { //arrow
+                            margin-left: 10%;
+                            margin-bottom: -1%;
+                        }
+                    }
+                    .detailsContainer {
+                        padding-left: 0;
+                        p {
+                            display: grid;
+                            grid-template-columns: 1fr 1fr;
+                            padding: 15px 0;
+                            border-bottom: 1px solid #524983;
+                            span:last-child  {
+                                color: $grayColor;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

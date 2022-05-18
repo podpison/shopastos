@@ -1,0 +1,58 @@
+@import "./../../app.module.scss";
+
+@mixin gridMobile1column {
+    @media screen and (max-width: 768px) {
+        grid-template-columns: 1fr!important;
+    }
+}
+
+.withHeaderContainer {
+    @include container;
+    @include gridMobile1column;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+    margin-bottom: -4px;
+    @media screen and (min-width: 441px) {
+        margin-top: 2.2%;
+    }
+    &.alternativeContainer {
+        @include gridMobile1column;
+        grid-template-columns: 1fr 1fr;
+    }
+    .contentContainer {
+        margin-bottom: 15%;
+        @media screen and (max-width: 768px) {
+            margin-bottom: 5%;
+        }
+        .textContainer {
+            @media screen and (max-width: 1200px) {
+                width: 90%;
+            }
+            .article {
+                @include article(true);
+            }
+            .sign {
+                @include sign;
+                margin-top: 3%;
+            }
+        }
+    }
+    .productImg {
+        width: 100%;
+        margin-left: auto;
+        margin-top: auto;
+        border-radius: 15px;
+        @media screen and (max-width: 1200px) {
+            transform: translate(0, 2%);
+            height: 100%;
+        }
+        @media screen and (max-width: 768px) {
+            object-fit: contain;
+            transform: none !important;
+            width: 100%!important;
+            max-height: 350px;
+        }
+    }
+}

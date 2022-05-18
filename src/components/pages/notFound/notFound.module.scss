@@ -1,0 +1,33 @@
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .errorCode {
+        font-weight: 900;
+        font-size: 25vmin;
+        @media screen and (max-width: 600px) {
+            font-size: 145px;
+        }
+    }
+    .sign1 {
+        font-size: 6vmin;
+        @media screen and (max-width: 600px) {
+            font-size: 35px;
+        }
+    }
+    .sign2 {
+        font-size: 2vmin;
+        margin-top: 0.5em;
+        @media screen and (max-width: 600px) {
+            font-size: 14px;
+        }
+    }
+    .button {
+        margin-top: 2%;
+        width: auto;
+        padding: 1em 2.5em;
+        @media screen and (max-width: 600px) {
+            margin-top: 4%;
+        }
+    }
+}

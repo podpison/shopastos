@@ -1,0 +1,43 @@
+@import "./../../../app.module.scss";
+
+@mixin underline {
+    &::after {
+        content: '';
+        width: 100%;
+        height: 8px;
+        background-color: #F1F0F8;
+        display: inline-block;
+        margin-top: 15px;
+    }
+}
+
+.accordionContainer {
+    box-shadow: none;
+    @include underline;
+    color: #272525;
+    & > div:nth-child(1) > div:nth-child(1) { //.MuiAccordionSummary-content
+        margin-bottom: 0;
+    }
+    &::before {
+        display: none;
+    }
+    .article {
+        @include h3;
+        padding: 0;
+        .expandIcon {
+            transform: scale(2);
+            color: #7981AD;
+        }
+    }
+    .sign {
+        @include sign;
+        padding: 0;
+        ul {
+            margin-top: 10px;
+            li {
+                list-style-type: initial;
+                margin-left: 30px;
+            }
+        }
+    }
+}

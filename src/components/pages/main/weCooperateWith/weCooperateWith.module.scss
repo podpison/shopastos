@@ -1,0 +1,65 @@
+@import "./../../../../app.module.scss";
+
+.weCooperateWithContainer {
+    @include container;
+    margin-top: 3%;
+    @media screen and (max-width: 899px) {
+        margin-top: 40px;
+    }
+    .article {
+        @include article;
+    }
+    .carousel {
+        margin-top: 5%;
+        padding: 0 40px;
+        @media screen and (max-width: 440px) {
+            padding: 35px 0;
+        }
+        & > div[class='slick-list'] {
+            margin: 0 40px;
+            @media screen and (max-width: 440px) {
+                margin: 35px 0;
+            }
+            & > div > div:not(:first-child) {
+                @media screen and (max-width: 440px) {
+                    margin: 35px 0;
+                }
+            }
+        }
+        img {
+            margin: 0 auto;
+            @media screen and (max-width: 1000px) and (min-width: 900px) {
+                transform: scale(0.9);
+            }
+            @media screen and (max-width: 600px) and (min-width: 441px) {
+                width: 90%;
+            }
+        }
+        button {
+            width: 40px;
+            height: 40px;
+            &::before {
+                display: block;
+                color: #7981AD;
+                font-size: 40px;
+            }
+            &:first-child {
+                left: 0;
+                @media screen and (max-width: 440px) {
+                    left: 50%;
+                    transform: translateX(-50%) rotate(90deg);
+                    top: 0;
+                }
+            }
+            &:last-child {
+                right: 0;
+                @media screen and (max-width: 440px) {
+                    top: auto;
+                    right: 50%;
+                    transform: translateX(50%) rotate(90deg);
+                    bottom: 0;
+                }
+            }
+        }
+    }
+}

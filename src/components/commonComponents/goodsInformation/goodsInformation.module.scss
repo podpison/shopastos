@@ -1,0 +1,34 @@
+@import "./../../../app.module.scss";
+
+.informationContainer {
+    @include container;
+    @include adaptiveValue('gap', 130, 30);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 4%;
+    @media screen and (max-width: 1400px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media screen and (max-width: 899px) {
+        margin-top: 40px;
+    }
+    @media screen and (max-width: 768px) {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .textContainer {
+        @include sign;
+        .article {
+            @include h3;
+        }
+        .sign {
+            margin-top: 3.3%;
+            .boldSing {
+                font-weight: bold;
+            }
+        }
+        .extraSign {
+            color: #524983;
+            margin-top: 15px;
+        }
+    }
+}

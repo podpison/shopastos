@@ -1,0 +1,220 @@
+@import "./../../../../app.module.scss";
+
+.modalContainer {
+    @media screen and (max-width: 899px) {
+        overflow: scroll;
+    }
+    .modal {
+        display: flex;
+        background-color: #FAFAFA;
+        width: 65%;
+        border-radius: 25px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        padding: 2.8% 3.7%;
+        @media screen and (max-width: 1400px) {
+            width: 80%;
+        }
+        @media screen and (max-width: 1200px) and (min-width: 900px) {
+            width: 90%;
+        }
+        @media screen and (max-width: 899px) {
+            flex-direction: column-reverse;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            position: relative;
+            margin: 2% auto;
+            padding: 4% 8.6%;
+        }
+        .close {
+            @include adaptiveValue('width', 50, 20);
+            position: absolute;
+            top: 3.7%;
+            right: 1.4%;
+            cursor: pointer;
+            @media screen and (max-width: 899px) {
+                right: 10px;
+                top: 10px;
+            }
+        }
+        .formContainer {
+            @media screen and (min-width: 900px) {
+                padding-right: 40px;
+                width: 35%;
+            }
+            @media screen and (max-width: 899px) {
+                margin-top: 7.15%;
+            }
+            .article {
+                @include h3;
+            }
+            .formSign {
+                @include adaptiveValue('font-size', 16, 14);
+                width: 24em;
+                margin-top: 4%;
+                @media screen and (max-width: 899px) {
+                    margin-top: 10px;
+                }
+            }
+            .form {
+                display: flex;
+                flex-direction: column;
+                margin-top: 8%;
+                @media screen and (max-width: 899px) {
+                    grid-template-columns: repeat(2, 1fr);
+                    display: grid;
+                    margin-top: 20px;
+                    gap: 20px 30px;
+                }
+                & > div {
+                    @media screen and (max-width: 899px) {
+                        width: 100%;
+                    }
+                    &:not(:first-child) {
+                        @media screen and (min-width: 900px) {
+                            margin-top: 7%;
+                        }
+                    }
+                }
+                button {
+                    margin-top: 10%;
+                    @media screen and (max-width: 899px) {
+                        margin-top: 0;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+        .basketContainer {
+            @media screen and (min-width: 900px) {
+                width: 65%;
+                padding-left: 40px;
+                border-left: 2px solid $mainBlackColor;
+            }
+            .article, .totalPrice {
+                @include h3;
+            }
+            .totalPrice {
+                margin-left: auto;
+            }
+            .itemsContainer {
+                display: grid;
+                grid-template-rows: repeat(auto-fit, minmax(min(100% / 3), max(85px, 100% / 3)));
+                margin-top: 3%;
+                height: 65%;
+                gap: 10px;
+                .itemContainer {
+                    grid-template-columns: 1fr 5fr 2fr 2fr 3fr;
+                    display: grid;
+                    position: relative;
+                    border-bottom: 1px solid $mainBlackColor;
+                    padding-bottom: 1.9%;
+                    gap: 10px;
+                    align-items: center;
+                    @media screen and (max-width: 1200px) {
+                        grid-template-columns: 1fr 4fr 2fr 2fr 3fr;
+                    }
+                    @media screen and (max-width: 1000px) {
+                        grid-template-columns: 1fr 3fr 1fr 1fr 3fr;
+                    }
+                    @media screen and (max-width: 899px) {
+                        grid-template-columns: 1fr 5fr 1fr 1fr 2fr;
+                    }
+                    @media screen and (max-width: 768px) {
+                        grid-template-columns: 1fr 5fr 1fr 1fr 3fr;
+                    }
+                    .imgContainer {
+                        width: 70px;
+                        height: 70px;
+                        background-color: #F1F1F8;
+                        border-radius: 6px;
+                        position: relative;
+                        .img {
+                            height: 80%;
+                            width: 70%;
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            object-fit: cover;
+                        }
+                    }
+                    // .name {
+    
+                    // }
+                    .sizeContainer {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        .sign {
+                            color: #9FA3B2;
+                            font-size: 12px;
+                        }
+                        .size {
+                            margin-top: 5px;
+                        }
+                    }
+                    .counterContainer {
+                        width: fit-content;
+                        .sign {
+                            color: #9FA3B2;
+                            font-size: 12px;
+                            text-align: center;
+                        }
+                        .counter {
+                            display: flex;
+                            margin-top: 5px;
+                            .button {
+                                width: 15px;
+                                height: 15px;
+                                min-width: initial;
+                                border: 0.5px solid $mainBlackColor;
+                                color: $mainBlackColor;
+                                transform: scaleX(0.85);
+                            }
+                            .count {
+                                padding: 0 15px;
+                                width: 8px;
+                                height: 16px;
+                            }
+                        }
+                    }
+                    .price {
+                        @include adaptiveValue('font-size', 24, 18);
+                        text-align: center;
+                        font-weight: 600;
+                    }
+                    .removeGood {
+                        @include adaptiveValue('width', 20, 17);
+                        position: absolute;
+                        right: -4.55%;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        cursor: pointer;
+                        @media screen and (max-width: 1000px) {
+                            right: -5.3%;
+                        }
+                    }
+                }
+            }
+            .paginationAndTotalPriceAndOrderNumber {
+                display: grid;
+                align-items: center;
+                grid-template-columns: 1fr 2fr;
+                margin-top: 2%;
+                .orderNumber {
+                    font-size: 14px;
+                    color: #8E8E8E;
+                }
+                .pagination {
+                    grid-column: 2;
+                    margin-top: 2%;
+                    grid-row: 2;
+                }
+            }
+        }
+    }
+}

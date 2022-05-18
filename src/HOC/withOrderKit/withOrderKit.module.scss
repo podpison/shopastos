@@ -1,0 +1,114 @@
+@import "./../../app.module.scss";
+
+@mixin kitExpampleContainerItem($value, $maxValue) {
+    width: calc($value + 50px);
+    height: calc($value + 50px);
+    @media screen and (min-width: 1921px) {
+        width: $maxValue;
+        height: $maxValue;
+    }
+}
+
+.orderKitContainer {
+    background-image: url(./../../static/img/commonComponents/WithOrderKitBackground.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 100vw;
+    margin-top: 4%;
+    @media screen and (max-width: 899px) {
+        margin-top: 40px;
+    }
+    @media screen and (max-width: 768px) {
+        background-size: 100% 280px;
+        background-position: bottom;
+    }
+    .orderKitContent {
+        @include container;
+        display: grid;
+        grid-template-columns: 5fr 4fr;
+        padding-bottom: 35px;
+        padding-top: 65px;
+        overflow-x: clip;
+        justify-items: center;
+        position: relative;
+        @media screen and (max-width: 768px) {
+            grid-template-columns: 1fr;
+            padding-top: 0;
+            gap: 70px;
+            justify-items: initial;
+        }
+        .content {
+            .rainbowSign {
+                display: flex;
+                margin: 0 auto;
+                @media screen and (max-width: 440px) {
+                    width: 70%;
+                }
+            }
+            .mainSign {
+                @include article;
+                margin-top: 4%;
+                @media screen and (max-width: 768px) {
+                    margin-top: 30px;
+                }
+            }
+            .sign {
+                @include sign;
+                color: $grayColor;
+                margin-top: 2.6%;
+                @media screen and (min-width: 820px) {
+                    width: 33em;
+                }
+                @media screen and (max-width: 768px) {
+                    margin-top: 20px;
+                }
+            }
+        }
+        .kitExpampleContainer {
+            position: relative;
+            display: flex;
+            align-items: center;
+            @media screen and (max-width: 768px) {
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: -3%;
+            }
+            .kitExpample {
+                @include kitExpampleContainerItem(23.2vw, 490px);
+                z-index: 3;
+                @media screen and (max-width: 768px) {
+                    width: 240px;
+                    height: 240px;
+                }                
+            }
+            .square1 {
+                @include kitExpampleContainerItem(23.8vw, 500px);
+                background: linear-gradient(49deg, #9796F0 -10%, #FFE0E8 107%);
+                border-radius: 15px;
+                position: absolute;
+                transform: rotate(15deg);
+                z-index: 2;
+                @media screen and (max-width: 768px) {
+                    width: 250px;
+                    height: 250px;
+                }            
+            }
+            .square2 {
+                @include kitExpampleContainerItem(15.2vw, 340px);
+                z-index: 1;
+                position: absolute;
+                left: -18%;
+                top: 35%;
+                background: linear-gradient(39deg, #9796F0 -10%, #FFE0E8 107%);
+                border-radius: 15px;
+                transform: rotate(-15deg);
+                opacity: 0.5;
+                @media screen and (max-width: 768px) {
+                    width: 180px;
+                    height: 180px;
+                    top: 27%;
+                }      
+            }
+        }
+    }
+}

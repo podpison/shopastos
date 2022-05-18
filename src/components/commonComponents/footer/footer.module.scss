@@ -1,0 +1,226 @@
+@import "./../../../app.module.scss";
+
+@mixin localArticle {
+    .article {
+        font-size: 20px;
+        font-weight: 600;
+    }
+}
+@mixin categoriesAndInfromationAndFormMargin899px {
+    @media screen and (max-width: 899px) and (min-width: 769px) {
+        margin-top: 14.2%;
+    }
+}
+@mixin mainMargin768px {
+    @media screen and (max-width: 768px) {
+        margin-top: 35px;
+    }
+}
+
+.footerContainer {
+    background-image: url(./../../../static/img/commonComponents/footerBackground.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    margin-top: 4%;
+    @media screen and (max-width: 440px) {
+        background-size: 133% 100%;
+    }
+    @media screen and (max-width: 899px) {
+        margin-top: 40px;
+    }
+    .footerContent {
+        @include container;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        justify-items: center;
+        padding-top: 7%;
+        padding-bottom: 3.5%;
+        @media screen and (max-width: 1200px) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        @media screen and (max-width: 1000px) {
+            padding-top: 10%;
+            padding-bottom: 5%;
+        }
+        @media screen and (max-width: 899px) {
+            justify-items: start;
+        }
+        @media screen and (max-width: 768px) {
+            grid-template-columns: 1fr 1fr;
+            padding-top: 90px;
+        }
+        .logoContainer {
+            grid-area: 1;
+            grid-column: 1;
+            @media screen and (max-width: 899px) {
+                grid-column: 1 / 3;
+            }
+            .logo {
+                width: 100%;
+                @media screen and (max-width: 899px) and (min-width: 441px) {
+                    width: 75%;
+                }
+            }
+            .sign {
+                @include sign;
+                margin-top: 4%;
+                @media screen and (min-width: 400px) {
+                    width: 22em;
+                }
+            }
+        }
+        .contactsContainer {
+            @include mainMargin768px;
+            grid-column: 1;
+            grid-area: 2;
+            margin-right: auto;
+            margin-top: 10.7%;
+            @media screen and (max-width: 899px) and (min-width: 769px) {
+                grid-row: 1;
+                grid-column: 3;
+                margin-top: 0;
+            }
+            @media screen and (max-width: 768px) {
+                grid-row: 3;
+                grid-column: 1 / 3;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+            @media screen and (max-width: 440px) {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            & > div:nth-child(2) {
+                @media screen and (max-width: 768px) {
+                    margin-top: 0;
+                    display: flex;
+                }
+            }
+        }
+        .categoriesContainer {
+            @include localArticle;
+            @include categoriesAndInfromationAndFormMargin899px;
+            @include mainMargin768px;
+            grid-column: 2;
+            grid-row: 1 / 3;
+            @media screen and (max-width: 899px) {
+                grid-column: 1;
+                grid-row: 2;
+            }
+            .navLinksContainer {
+                display: flex;
+                flex-direction: column;
+                a {
+                    margin-top: 30px;
+                    font-size: 18px;
+                    color: $grayColor;
+                    &:last-child {
+                        display: none;
+                    }
+                }
+            }
+        }
+        .informationContainer {
+            @include localArticle;
+            @include categoriesAndInfromationAndFormMargin899px;
+            @include mainMargin768px;
+            grid-column: 3;
+            grid-row: 1 / 3;
+            @media screen and (max-width: 899px) {
+                grid-column: 2;
+                grid-row: 2;
+            }
+            .linksContainer {
+                display: flex;
+                flex-direction: column;
+            }
+            a {
+                margin-top: 30px;
+                font-size: 18px;
+                color: $grayColor;
+            }
+        }
+        .contactManagerFormContainer {
+            @include localArticle;
+            width: 75%;
+            grid-column: 4;
+            grid-row: 1 / 3;
+            @media screen and (max-width: 1200px) {
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                align-items: center;
+                margin-top: 3%;
+                grid-column: 1 / 4;
+                grid-row: 3;
+            }
+            @media screen and (max-width: 899px) {
+                @include categoriesAndInfromationAndFormMargin899px;
+                display: initial;
+                grid-row: 2;
+                grid-column: 3;
+            }
+            @media screen and (max-width: 768px) {
+                @include mainMargin768px;
+                grid-row: 4;
+                grid-column: 1 / 3;
+            }
+            .sign {
+                @include sign;
+                @include adaptiveValue('font-size', 14, 12);
+                color: #8F90A6;
+                margin-top: 10px;
+                @media screen and (max-width: 1200px) and (min-width: 899px) {
+                    margin-top: 0;
+                }
+            }
+            .form {
+                position: relative;
+                margin-top: 20px;
+                max-width: 280px;
+                @media screen and (max-width: 1200px) {
+                    margin-top: 0;
+                    margin-left: 7%;
+                }
+                @media screen and (max-width: 899px) {
+                    margin-top: 20px;
+                    margin-left: 0;
+                }
+                &.error {
+                    .textField fieldset { //default mui TextField error border color
+                        border-color: #d32f2f;
+                    }
+                    .button {
+                        opacity: 0.5;
+                    }
+                }
+                .textField {
+                    @include TextFieldError;
+                    width: 100%;
+                    fieldset {
+                        border: 2px solid $mainBlackColor;
+                        border-radius: 15px;
+                    }
+                }
+                .button {
+                    position: absolute;
+                    right: -5px;
+                    top: 28px;
+                    width: 70px;
+                    height: 70px;
+                    border-radius: 50%;
+                    margin-top: 0;
+                    padding: 0;
+                    transform: scale(0.5) translateY(-100%);
+                    .arrow {
+                        width: 2em;
+                        height: 2em;
+                    }
+                }
+            }
+        }
+    }
+}

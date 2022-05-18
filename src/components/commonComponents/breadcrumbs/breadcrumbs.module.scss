@@ -1,0 +1,10 @@
+.breadcrumbsContainer {
+    margin-bottom: 3%;
+    font-family: 'gilroy';
+    @media screen and (max-width: 1600px) {
+        margin-top: 3%;
+    }
+    @media screen and (max-width: 899px) {
+        display: none;
+    }
+}

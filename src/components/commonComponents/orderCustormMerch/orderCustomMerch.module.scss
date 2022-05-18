@@ -1,0 +1,220 @@
+@import "./../../../app.module.scss";
+
+@mixin img($maxWidth, $minWidth, $maxHeigth, $minHeight) {
+    @include adaptiveValue('width', $maxWidth, $minWidth);
+    @include adaptiveValue('height', $maxHeigth, $minHeight);
+    position: absolute;
+}
+
+.orderCustomMerch {
+    background-image: url(./../../../static/img/commonComponents/orderCustomMerchBackground.png);
+    background-size: 100% calc(100% + 55px);
+    background-repeat: no-repeat;
+    overflow: hidden;
+    margin-top: 3%;
+    padding-bottom: 65px;
+    @media screen and (max-width: 1200px) {
+        background-size: 165% 111%;
+        background-position-x: 10%;
+    }
+    @media screen and (max-width: 899px) {
+        margin-top: 40px;
+        background-size: 222% 111%;
+    }
+    @media screen and (max-width: 768px) {
+        background-size: 350% 76%;
+        background-position-x: 76%;
+        padding-bottom: 0;
+    }
+    .orderCustomMerchContent {
+        @include container;
+        .textsAndImagesContainer {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            margin-top: 9%;
+            @media screen and (max-width: 768px) {
+                grid-template-columns: 1fr;
+            } 
+            .texts {
+                width: 70%;
+                @media screen and (max-width: 1500px) {
+                    width: 75%;
+                }
+                @media screen and (max-width: 1300px) {
+                    width: 80%;
+                }
+                @media screen and (max-width: 1200px) {
+                    width: 85%;
+                }
+                @media screen and (max-width: 1100px) {
+                    width: 90%;
+                }
+                @media screen and (max-width: 1050px) {
+                    width: 450px;
+                }
+                @media screen and (max-width: 1050px) {
+                    margin-top: 5%;
+                }
+                @media screen and (max-width: 460px) {
+                    width: auto;
+                }
+                .article {
+                    @include adaptiveValue('font-size', 36, 24);
+                    font-weight: 700;
+                    line-height: 130%;
+                    letter-spacing: 0.04em;
+                }
+                .sign {
+                    @include sign;
+                    margin-top: 4%;
+                    color: $grayColor;
+                }
+            }
+            .imagesContainer {
+                position: relative;
+                @media screen and (max-width: 768px) {
+                    @include adaptiveValue('height', 420, 240); //.lamp height
+                    grid-row: 1;
+                }
+                img {
+                    @media screen and (max-width: 768px) {
+                        position: initial;
+                    }
+                }
+                .rocket1 {
+                    @include img(90, 50, 140, 70);
+                    bottom: -50%;
+                    @media screen and (max-width: 1200px) {
+                        bottom: 0;
+                    }
+                    @media screen and (max-width: 1100px) {
+                        left: 10%;
+                    }
+                    @media screen and (max-width: 899px) {
+                        bottom: -63%;
+                        left: -15%;
+                    }
+                    @media screen and (max-width: 768px) {
+                        inset: auto 55% -4% auto;
+                    }
+                }
+                .lamp {
+                    @include img(430, 245, 420, 240);
+                    left: 25%;
+                    bottom: -59%;
+                    @media screen and (max-width: 1200px) {
+                        right: -12%;
+                        left: auto;
+                        bottom: -46%;
+                    }
+                    @media screen and (max-width: 1000px) {
+                        right: -11.6%;
+                        left: auto;
+                        bottom: -57%;
+                    }
+                    @media screen and (max-width: 768px) {
+                        position: absolute;
+                        inset: auto;
+                        right: calc(-1vw - 50px);
+                    }
+                    @media screen and (max-width: 440px) {
+                        right: calc(-13vw - 50px);
+                    }
+                }
+                .rocket2 {
+                    @include img(125, 35, 177, 55);
+                    right: 0;
+                    top: 80%;
+                    @media screen and (max-width: 1200px) {
+                        top: 205%;
+                        right: 3%;
+                    }
+                    @media screen and (max-width: 899px) {
+                        left: -113%;
+                        top: 270%;
+                    }
+                    @media screen and (max-width: 768px) {
+                        inset: auto auto -7% 7%;
+                    }
+                }
+            }
+        }
+        .formContainer {
+            margin-top: 4%;
+            @media screen and (max-width: 1200px) {
+                display: flex;
+                width: 80%;
+            }
+            @media screen and (max-width: 1000px) {
+                margin-top: 10%;
+            }
+            @media screen and (max-width: 899px) {
+                margin-top: 13%;
+            }
+            @media screen and (max-width: 768px) {
+                flex-direction: column;
+                width: auto;
+                margin-top: 9.2%;
+            }
+            .formSign {
+                @include adaptiveValue('font-size', 24, 20);
+                width: 22em;
+                line-height: 30px;
+                font-weight: 600;
+                @media screen and (max-width: 1200px) {
+                    width: 14em;
+                }
+                @media screen and (max-width: 768px) {
+                    width: 18.6em;
+                }
+                @media screen and (max-width: 440px) {
+                    width: auto;
+                }
+                span {
+                    color: #1FAB8A;
+                }
+            }
+            .form {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                margin-top: 2.5%;
+                align-items: center;
+                @media screen and (max-width: 1200px) {
+                    grid-template-columns: 1fr;
+                    margin: 0 0 0 90px;
+                }
+                @media screen and (max-width: 768px) {
+                    margin: 0;
+                    width: 336px;
+                    margin-top: 60px;
+                }
+                & > div {
+                    @media screen and (max-width: 1300px) and (min-width: 1201px) {
+                        width: 90%;
+                        margin-left: 0;
+                    }
+                    @media screen and (max-width: 1200px) and (min-width: 769px) {
+                        width: 170%;
+                    }
+                    &:not(:first-child) {
+                        margin-left: 18%;
+                        @media screen and (max-width: 1200px) {
+                            margin-left: 0;
+                            margin-top: 12%;
+                        }
+                    }
+                }
+                button {
+                    margin-left: 17%;
+                    @media screen and (max-width: 1300px) {
+                        margin-left: 0;
+                    }
+                    @media screen and (max-width: 1200px) and (min-width: 769px) {
+                        margin: 12% 0 0;
+                        width: 135%;
+                    }
+                }
+            }
+        }
+    }
+}

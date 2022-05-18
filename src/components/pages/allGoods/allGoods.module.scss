@@ -1,0 +1,50 @@
+@import "./../../../app.module.scss";
+
+@mixin upperlineHover {
+    &::before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        background-color: black;
+        width: 100%;
+        height: 8px;
+        top: -50px;
+        left: 0;
+    }
+}
+
+.allGoodsHeader {
+    & > img {
+        @media screen and (max-width: 1200px) {
+            transform: translateX(16%)!important;
+            width: 100%!important;
+        }
+        @media screen and (max-width: 899px) {
+            transform: translateX(10%)!important;
+            width: 117%!important;
+        }
+    }
+    .textContainer {
+        width: 60%;
+        @media screen and (max-width: 1400px) {
+            width: 80%;
+        }
+    }
+}
+
+.allGoods {
+    @include container;
+    margin-top: 40px;
+    .categoriesContainer {
+        display: flex;
+        padding-top: 2.6%;
+        border-top: 8px solid #F2F1F8;
+        gap: 30px;
+        flex-wrap: wrap;
+        & > li {
+            &:hover {
+                @include upperlineHover;
+            }
+        }
+    }
+}

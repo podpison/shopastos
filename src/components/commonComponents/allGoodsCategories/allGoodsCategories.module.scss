@@ -1,0 +1,110 @@
+@import "./../../../app.module.scss";
+
+@mixin activeCategory {
+    background-color: white;
+    & > a, & > li a {
+        color: $mainBlackColor;
+    }
+}
+@mixin categoryPaddings {
+    padding-bottom: 55px;
+    & > * { // ul or li
+        padding: 15px 20px;
+    }
+}
+
+.categoriesContainer {
+    position: relative;
+    &:hover {
+        .itemsContainer {
+            display: block;
+        }
+    }
+    & > li {
+        position: relative;
+        white-space: nowrap;
+        &:not(:first-child) {
+            display: none;
+        }
+        &:hover {
+            .itemsContainer {
+                display: block;
+            }
+        }
+    }
+    li {
+        @include sign;
+        letter-spacing: normal;
+        color: #8E8E8E;
+    }
+    .itemsContainer {
+        @include categoryPaddings;
+        display: none;
+        position: absolute;
+        width: 100%;
+        background-color: #272525;
+        z-index: 5;
+        border-radius: 6px;
+        left: 0;
+        top: 123px;
+        &::before {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 20px;
+            position: absolute;
+            top: -20px;
+        }
+        .categoryContainer {
+            position: relative;
+            transition: 0.6s;
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+            &:hover {
+                @include activeCategory;
+                .subcategoriesContainer {
+                    display: block;
+                }
+            }
+            a {
+                color: white;
+            }
+            .subcategoriesContainer {
+                @include categoryPaddings;
+                display: none;
+                position: absolute;
+                width: 100%;
+                color: white;
+                transform: translateX(95%);
+                top: 0;
+                background-color: $mainBlackColor;
+                border-bottom-left-radius: 6px;
+                border-bottom-right-radius: 6px;
+                transition: 0.6s;
+                &::before {
+                    content: '';
+                    display: block;
+                    width: 11px;
+                    height: 100%;
+                    position: absolute;
+                    left: -11px;
+                }
+                li {
+                    transition: 0.6s;
+                    &:hover {
+                        @include activeCategory;
+                    }
+                    &.activeSubcategory {
+                        @include activeCategory;
+                    }
+                    a::before {
+                        content: '-';
+                        transform: scale(1.5);
+                        display: inline-block;
+                        margin-right: 5px;
+                    }
+                }
+            }
+        }
+    }
+}

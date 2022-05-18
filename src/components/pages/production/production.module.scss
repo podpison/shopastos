@@ -1,0 +1,40 @@
+@import "./../../../app.module.scss";
+
+.productionHeaderContainer {
+    .textContainer {
+        width: 75%;
+        @media screen and (max-width: 1400px) {
+            width: 95%!important;
+        }
+        @media screen and (max-width: 1200px) {
+            width: 120%!important;
+        }
+        @media screen and (max-width: 1100px) {
+            width: 115%!important;
+        }
+        @media screen and (max-width: 768px) {
+            width: auto!important;
+        }
+    }
+    & > img {
+        @media screen and (max-width: 1200px) {
+            transform: translate(24%, 2%)!important;
+            width: 113%!important;
+        }
+        @media screen and (max-width: 1100px) {
+            transform: translate(17%, 2%);
+            width: 123%;
+        }
+    }
+    button {
+        margin-top: 7.4%;
+    }
+}
+.productionItemHeaderContainer {
+    .textContainer {
+        width: 65%;
+    }
+    button {
+        margin-top: 7.4%;
+    }
+}

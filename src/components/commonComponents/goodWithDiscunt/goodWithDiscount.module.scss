@@ -1,0 +1,17 @@
+@import "./../../../app.module.scss";
+
+.goodWithDiscountContainer {
+    display: flex;
+    position: relative;
+    .goodWithDiscount {
+        @include adaptiveValue('font-size', 38, 24);
+        font-weight: 900;
+        text-transform: uppercase;
+        color: #3C336C;
+    }
+    .img {
+        height: 100px;
+        width: 200px;
+        opacity: 0.5;
+    }
+}
