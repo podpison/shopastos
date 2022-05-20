@@ -10,7 +10,7 @@ export const Kits: React.FC = () => {
     const { t } = useTranslation();
     let cardsItems = useSelector(getKitItemsSelector);
     return <div>
-        <Cards items={cardsItems} article={t('kits.article')} portion={2} className={c.cards} />
+        <Cards paginationName="kits" items={cardsItems} article={t('kits.article')} portion={2} className={c.cards} />
         <GoodsInformation />
         <OrderKit />
     </div>

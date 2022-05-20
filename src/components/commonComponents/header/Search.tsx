@@ -1,5 +1,5 @@
 import SearchIcon from "@mui/icons-material/Search";
-import { TextField, InputAdornment, Autocomplete } from "@mui/material";
+import { TextField, InputAdornment, Autocomplete, createFilterOptions } from "@mui/material";
 import { useState } from "react";
 import c from "./header.module.scss";
 import { useSelector } from "react-redux";
@@ -10,6 +10,7 @@ import { IAllGoodsItem, IKitItem } from "./../../../redux/staticReducer";
 import { Link } from "react-router-dom";
 import { wordToPathHelper } from "./../../../helpers/wordToPathHelper";
 import { currentLanguageHelper } from "../../../helpers/currentLanguageHelper";
+// import { createFilterOptions } from "@mui/material/Autocomplete";
 
 const checkItemType = (item: IAllGoodsItem | IKitItem): item is IAllGoodsItem => {
     return (item as IAllGoodsItem).category !== undefined;
@@ -17,7 +18,9 @@ const checkItemType = (item: IAllGoodsItem | IKitItem): item is IAllGoodsItem =>
 
 type Props = {
     className?: string
-}
+};
+
+type ItemType = IAllGoodsItem | IKitItem;
 
 export const Search: React.FC<Props> = ({ className }) => {
     useStaticItems('allGoodsItems');
@@ -30,9 +33,14 @@ export const Search: React.FC<Props> = ({ className }) => {
     const { t } = useTranslation();
 
     let currentLanguage = currentLanguageHelper<null>(null);
-    let items: (IAllGoodsItem | IKitItem)[] = [...allGoodsItems, ...kitsItems];
+    const filterOptions = createFilterOptions({
+        stringify: (option: ItemType) => option.name[currentLanguage] + option.price
+    });
 
-    return <Autocomplete id='search' className={`${c.searchContainer} ${className}`} filterSelectedOptions disablePortal options={items} inputValue={inputValue} onInputChange={(e, newValue) => setInputValue(newValue)}
+    let items: ItemType[] = [...allGoodsItems, ...kitsItems];
+
+    return <Autocomplete className={`${c.searchContainer} ${className}`} options={items} disablePortal filterOptions={filterOptions}
+        getOptionLabel={option => option.name ? currentLanguageHelper(option.name) : ''}
         renderInput={
             (params) =>
                 <TextField {...params} autoComplete='off' InputProps={{
@@ -43,12 +51,7 @@ export const Search: React.FC<Props> = ({ className }) => {
                     )
                 }} className={c.search} placeholder={t('header.computerHeader.search')} />
         }
-        getOptionLabel={option => {
-            console.log(option)
-            return option.name ? currentLanguageHelper(option.name) : '';
-        }}
         renderOption={(props, i) => {
-            console.log(i);
             let path = checkItemType(i)
                 ? `/allGoods/${wordToPathHelper(i.category.eng)}/${wordToPathHelper(i.subcategory.eng)}?item=${wordToPathHelper(i.name.eng)}`
                 : `/kits?item=${wordToPathHelper(i.name.eng)}`;
@@ -61,6 +64,5 @@ export const Search: React.FC<Props> = ({ className }) => {
                 </Link>
             </li>
         }}
-        filterOptions={(options, state) => options.filter(i => i.name[currentLanguage].toLowerCase().includes(state.inputValue.toLowerCase()) || i.price.toString().includes(state.inputValue))}
     />
 };

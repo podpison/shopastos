@@ -22,7 +22,7 @@
         background-size: 222% 111%;
     }
     @media screen and (max-width: 768px) {
-        background-size: 350% 76%;
+        background-size: 350% 78%;
         background-position-x: 76%;
         padding-bottom: 0;
     }
@@ -91,8 +91,8 @@
                         left: 10%;
                     }
                     @media screen and (max-width: 899px) {
-                        bottom: -63%;
-                        left: -15%;
+                        bottom: -65%;
+                        left: calc(-150px - 7%);
                     }
                     @media screen and (max-width: 768px) {
                         inset: auto 55% -4% auto;
@@ -110,7 +110,7 @@
                     @media screen and (max-width: 1000px) {
                         right: -11.6%;
                         left: auto;
-                        bottom: -57%;
+                        bottom: -50%;
                     }
                     @media screen and (max-width: 768px) {
                         position: absolute;
@@ -130,8 +130,8 @@
                         right: 3%;
                     }
                     @media screen and (max-width: 899px) {
-                        left: -113%;
-                        top: 270%;
+                        left: calc(-300px - 30%);
+                        top: 245%;
                     }
                     @media screen and (max-width: 768px) {
                         inset: auto auto -7% 7%;
@@ -188,6 +188,9 @@
                     width: 336px;
                     margin-top: 60px;
                 }
+                @media screen and (max-width: 440px) {
+                    width: 100%;
+                }
                 & > div {
                     @media screen and (max-width: 1300px) and (min-width: 1201px) {
                         width: 90%;
@@ -202,6 +205,9 @@
                             margin-left: 0;
                             margin-top: 12%;
                         }
+                        @media screen and (max-width: 768px) {
+                            margin-top: 35px;
+                        }
                     }
                 }
                 button {
@@ -212,6 +218,12 @@
                     @media screen and (max-width: 1200px) and (min-width: 769px) {
                         margin: 12% 0 0;
                         width: 135%;
+                    }
+                    @media screen and (max-width: 768px) {
+                        margin-top: 40px;
+                    }
+                    @media screen and (max-width: 768px) {
+                        width: 100%;
                     }
                 }
             }

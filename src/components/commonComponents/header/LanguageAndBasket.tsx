@@ -8,9 +8,14 @@ import basketImg from "./../../../static/img/commonComponents/card/basket.png";
 import { getBasketItemsSelector } from "../../../redux/selectors";
 import { currentLanguageHelper } from "../../../helpers/currentLanguageHelper";
 
-export const LanguageAndBasket: React.FC = () => {
+type Props = {
+    closeBurger?: () => void
+}
+
+export const LanguageAndBasket: React.FC<Props> = ({closeBurger}) => {
     const { t, i18n } = useTranslation();
     const changeLanguage = (lng: string) => {
+        closeBurger && closeBurger();
         i18n.changeLanguage(lng);
         localStorage.setItem('lng', lng);
     };
@@ -20,7 +25,7 @@ export const LanguageAndBasket: React.FC = () => {
     let basketItemsLength = useSelector(getBasketItemsSelector).length;
 
     return <>
-        <Link to={openBasket}>
+        <Link onClick={closeBurger} to={openBasket}>
             <Badge anchorOrigin={{ vertical: 'top', horizontal: 'right' }} invisible={basketItemsLength === 1} badgeContent={basketItemsLength} color='success'><img className={c.basket} alt={t('alts.basket')} src={basketImg} /></Badge>
         </Link>
         <div className={c.languages}>

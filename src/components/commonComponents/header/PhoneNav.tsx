@@ -19,9 +19,9 @@ export const PhoneNav: React.FC<Props> = ({ burgerStatus, setBurgerStatus }) => 
     return <SwipeableDrawer className={c.phoneNavContainer} anchor="top" open={burgerStatus} onClose={closeBurger} onOpen={openBurger}>
         <img src={closeImg} alt={t('alts.close')} onClick={closeBurger} className={c.close} />
         <div className={c.languageAndBasket}>
-            <LanguageAndBasket />
+            <LanguageAndBasket closeBurger={closeBurger} />
         </div>
         <NavLinks mainPageLink closeBurger={closeBurger} className={c.mobileNavLinks} />
-        <Contacts className={c.contacts} />
+        <Contacts closeBurger={closeBurger} className={c.contacts} />
     </SwipeableDrawer>
 };

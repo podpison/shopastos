@@ -24,7 +24,7 @@ export const BasketModal: React.FC = () => {
     let items = useSelector(getBasketItemsSelector);
 
     let Items = items.map(i => <BasketItem {...i} key={i.name.eng} />);
-    let PortionOfItems = usePortion<JSX.Element[]>(Items, 3);
+    let PortionOfItems = usePortion<JSX.Element[]>('basketPortion', Items, 3);
     let totalPrice = items.reduce((prev, curr) => prev + curr.count * curr.price, 0);
 
     let orderNumber = Math.random().toString(36).slice(2, 8).toUpperCase();
@@ -37,13 +37,16 @@ export const BasketModal: React.FC = () => {
                 <UserCredentialsForm isItBasketItems signClassName={c.formSign} formClassName={c.form} />
             </div>
             <div className={c.basketContainer}>
-                <h3 className={c.article}>{t('header.basketModal.basket')}</h3>
+                <div className={c.basketSignAndMobileOrderNumber}>
+                    <h3 className={c.article}>{t('header.basketModal.basket')}</h3>
+                    <p className={c.orderNumberMobile}>{t('header.basketModal.orderNumber')} {orderNumber}</p>
+                </div>
                 <div className={c.itemsContainer}>
                     {PortionOfItems}
                 </div>
                 <div className={c.paginationAndTotalPriceAndOrderNumber}>
                     <p className={c.orderNumber}>{t('header.basketModal.orderNumber')} {orderNumber}</p>
-                    <Pagination className={c.pagination} portion={2} hidden={Items.length < 4} itemsLength={Items.length} />
+                    <Pagination name='basket' className={c.pagination} portion={2} hidden={Items.length < 4} itemsLength={Items.length} />
                     <strong className={c.totalPrice}>{`${t('header.basketModal.total')}: ${totalPrice} ₽`}</strong>
                 </div>
             </div>

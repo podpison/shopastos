@@ -11,42 +11,44 @@
     &.paginationHidden {
         display: none;
     }
-    li {
-        button {
-            @include sign;
-            font-weight: 700;
-            color: #7981AD;
-            border-radius: 50%;
-            margin: 0;
-            &[aria-current='true'] {
+    & > ul {
+        display: grid;
+        grid-auto-flow: column;
+        li {
+            button {
+                @include sign;
+                font-weight: 700;
+                color: #7981AD;
+                border-radius: 50%;
+                margin: 0;
+                &[aria-current='true'] {
+                    @include buttonSize;
+                    @include sign(true);
+                    color: white;
+                    background-color: #7981AD;
+                }
+                &:hover {
+                    background-color: #7981AD;
+                    color: white;
+                }
+            }
+            &:not(:first-child):not(:last-child):not(:nth-child(2)) {
+                margin-left: 1vw;
+            }
+            &:first-child button, &:last-child button {
                 @include buttonSize;
-                @include sign(true);
-                color: white;
-                background-color: #7981AD;
+                background-color: #ECE7F0;
+                svg {
+                    @include adaptiveValue('font-size', 40, 35);
+                    color: #7981AD;                
+                }
             }
-            &:hover {
-                background-color: #7981AD;
-                color: white;
+            &:first-child {
+                margin-right: 2vw;
             }
-        }
-        &:not(:first-child):not(:last-child):not(:nth-child(2)) {
-            margin-left: 20px;
-        }
-        &:first-child button, &:last-child button {
-            @include buttonSize;
-        }
-        &:first-child button, &:last-child button {
-            background-color: #ECE7F0;
-            svg {
-                font-size: 40px;
-                color: #7981AD;                
+            &:last-child {
+                margin-left: 2vw;
             }
-        }
-        &:first-child button {
-            margin-right: 40px;
-        }
-        &:last-child button {
-            margin-left: 40px;
         }
     }
 }

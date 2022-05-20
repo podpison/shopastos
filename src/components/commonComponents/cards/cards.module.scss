@@ -28,7 +28,6 @@
             .media {
                 @include adaptiveValue('height', 380, 250);
                 background-color: #F1F1F8;
-                object-fit: initial;
             }
             .content {
                 .name {
@@ -69,8 +68,9 @@
         top: 50%;
         padding: 30px;
         font-family: 'gilroy';
-        @media screen and (max-width: 1200px) {
-            width: 90%;
+        @media screen and (max-width: 1300px) {
+            width: 92%;
+            height: 60%;
             grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
         }
         .closeIcon {
@@ -112,12 +112,21 @@
             }
         }
         .carousel {
-            & div[class="slick-list"] img {
-                height: 49vh;
-                max-width: 530px;
+            div[class="slick-list"] {
+                height: 85%;
+                & > div[class="slick-track"] {
+                    height: 100%;
+                    & > div > div {
+                        height: 100%;
+                        img {
+                            height: 99%;
+                        }
+                    }
+                }
             }
             .pagingItem {
-                height: 70px;
+                height: 180%;
+                max-height: 92px;
                 width: 100%;
             }
         }

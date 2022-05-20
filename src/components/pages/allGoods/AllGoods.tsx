@@ -27,7 +27,7 @@ export const AllGoods: React.FC = () => {
     return <>
         <div className={c.allGoods}>
             <AllGoodsCategories categoriesContainer={c.categoriesContainer} />
-            <Cards items={filtredItems} portion={1} />
+            <Cards paginationName="allGoods" items={filtredItems} portion={1} />
         </div>
         <OrderCustomMerch />
     </>

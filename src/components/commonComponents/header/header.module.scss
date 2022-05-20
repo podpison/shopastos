@@ -65,6 +65,9 @@
     .appBar { 
         box-shadow: none;
         background-color: inherit;
+        @media screen and (max-width: 899px) {
+            background-color: rgba(250, 251, 253, 0.44);
+        }
         & > div {
             padding: 0;
         }
@@ -204,19 +207,21 @@
             }
             .goodWithDiscountContainer {
                 align-items: center;
-                justify-content: flex-end;
+                height: max(80px, calc(70px + 1.6vw));
+                max-height: 100px;
+                width: fit-content;
+                margin-left: auto;
                 p {
-                    @media screen and (max-width: 1530px) {
-                        position: absolute;
-                        z-index: 1;
-                        right: 8%
-                    }
-                    @media screen and (max-width: 1200px) {
-                        left: 0;
-                    }
+                    z-index: 1;
                 }
                 img {
                     margin-left: 20px;
+                    height: 100%;
+                    @media screen and (max-width: 1200px) {
+                        position: absolute;
+                        right: 0;
+                        margin-left: 0;
+                    }
                 }
             }
         }
@@ -237,7 +242,8 @@
         .close {
             @include adaptiveValue('width', 52, 30);
             position: absolute;
-            right: 1%;
+            right: 10px;
+            top: 10px;
         }
         .languageAndBasket {
             display: flex;
