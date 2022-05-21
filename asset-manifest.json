@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.css": "/shopastos/static/css/main.d058b4bb.css",
-    "main.js": "/shopastos/static/js/main.221b9440.js",
+    "main.css": "/shopastos/static/css/main.f6791c4b.css",
+    "main.js": "/shopastos/static/js/main.91e1d458.js",
     "static/css/701.01acf65b.chunk.css": "/shopastos/static/css/701.01acf65b.chunk.css",
     "static/js/701.16de9cc7.chunk.js": "/shopastos/static/js/701.16de9cc7.chunk.js",
-    "static/css/828.6e73ed34.chunk.css": "/shopastos/static/css/828.6e73ed34.chunk.css",
+    "static/css/828.d4f33d27.chunk.css": "/shopastos/static/css/828.d4f33d27.chunk.css",
     "static/js/828.0104a0f6.chunk.js": "/shopastos/static/js/828.0104a0f6.chunk.js",
-    "static/css/289.e67f1d62.chunk.css": "/shopastos/static/css/289.e67f1d62.chunk.css",
+    "static/css/289.01225cca.chunk.css": "/shopastos/static/css/289.01225cca.chunk.css",
     "static/js/289.9f2c82d0.chunk.js": "/shopastos/static/js/289.9f2c82d0.chunk.js",
     "static/css/56.91461a26.chunk.css": "/shopastos/static/css/56.91461a26.chunk.css",
     "static/js/56.a71d271e.chunk.js": "/shopastos/static/js/56.a71d271e.chunk.js",
@@ -18,7 +18,7 @@
     "static/js/542.df16e79c.chunk.js": "/shopastos/static/js/542.df16e79c.chunk.js",
     "static/js/775.3ec23148.chunk.js": "/shopastos/static/js/775.3ec23148.chunk.js",
     "static/js/717.52a2be5d.chunk.js": "/shopastos/static/js/717.52a2be5d.chunk.js",
-    "static/js/434.e1d4339d.chunk.js": "/shopastos/static/js/434.e1d4339d.chunk.js",
+    "static/js/434.1592d16f.chunk.js": "/shopastos/static/js/434.1592d16f.chunk.js",
     "static/media/footerBackground.png": "/shopastos/static/media/footerBackground.6556afe464a924b968bc.png",
     "static/media/orderCustomMerchBackground.png": "/shopastos/static/media/orderCustomMerchBackground.ae8d2b63666d799ac8c3.png",
     "static/media/informationBackground.png": "/shopastos/static/media/informationBackground.6cca4c885d8d788f767a.png",
@@ -43,13 +43,13 @@
     "index.html": "/shopastos/index.html",
     "static/media/getFetch.cjs": "/shopastos/static/media/getFetch.c780682470504fffbd04.cjs",
     "static/media/wave1.svg": "/shopastos/static/media/wave1.4ae987f3d360a0143503.svg",
-    "main.d058b4bb.css.map": "/shopastos/static/css/main.d058b4bb.css.map",
-    "main.221b9440.js.map": "/shopastos/static/js/main.221b9440.js.map",
+    "main.f6791c4b.css.map": "/shopastos/static/css/main.f6791c4b.css.map",
+    "main.91e1d458.js.map": "/shopastos/static/js/main.91e1d458.js.map",
     "701.01acf65b.chunk.css.map": "/shopastos/static/css/701.01acf65b.chunk.css.map",
     "701.16de9cc7.chunk.js.map": "/shopastos/static/js/701.16de9cc7.chunk.js.map",
-    "828.6e73ed34.chunk.css.map": "/shopastos/static/css/828.6e73ed34.chunk.css.map",
+    "828.d4f33d27.chunk.css.map": "/shopastos/static/css/828.d4f33d27.chunk.css.map",
     "828.0104a0f6.chunk.js.map": "/shopastos/static/js/828.0104a0f6.chunk.js.map",
-    "289.e67f1d62.chunk.css.map": "/shopastos/static/css/289.e67f1d62.chunk.css.map",
+    "289.01225cca.chunk.css.map": "/shopastos/static/css/289.01225cca.chunk.css.map",
     "289.9f2c82d0.chunk.js.map": "/shopastos/static/js/289.9f2c82d0.chunk.js.map",
     "56.91461a26.chunk.css.map": "/shopastos/static/css/56.91461a26.chunk.css.map",
     "56.a71d271e.chunk.js.map": "/shopastos/static/js/56.a71d271e.chunk.js.map",
@@ -61,10 +61,10 @@
     "542.df16e79c.chunk.js.map": "/shopastos/static/js/542.df16e79c.chunk.js.map",
     "775.3ec23148.chunk.js.map": "/shopastos/static/js/775.3ec23148.chunk.js.map",
     "717.52a2be5d.chunk.js.map": "/shopastos/static/js/717.52a2be5d.chunk.js.map",
-    "434.e1d4339d.chunk.js.map": "/shopastos/static/js/434.e1d4339d.chunk.js.map"
+    "434.1592d16f.chunk.js.map": "/shopastos/static/js/434.1592d16f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d058b4bb.css",
-    "static/js/main.221b9440.js"
+    "static/css/main.f6791c4b.css",
+    "static/js/main.91e1d458.js"
   ]
 }
