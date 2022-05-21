@@ -64,6 +64,13 @@
         @media screen and (max-width: 500px) {
             grid-template-columns: 1fr 1fr;
             row-gap: 20px;
+            width: 70%;
+        }
+        @media screen and (max-width: 440px) {
+            width: 80%;
+        }
+        @media screen and (max-width: 380px) {
+            width: 90%;
         }
         .advatageItem {
             @media screen and (max-width: 500px) {
@@ -166,6 +173,9 @@
             grid-template-columns: 3fr 1fr 1fr;
             grid-template-rows: 49% 49%;
             max-height: calc(26vw + 100px);
+            & > a {
+                @include decreaseSizeHover;
+            }
             @media screen and (min-width: 1921px) {
                 max-height: 600px;
             }
@@ -343,7 +353,7 @@
                     margin-top: 4%;
                     width: 32em;
                     @media screen and (max-width: 1200px) {
-                        margin-top: 3%;
+                        margin-top: max(20px, 3%);
                         width: auto;
                     }
                     @media screen and (max-width: 899) {
@@ -357,7 +367,7 @@
                 align-items: center;
                 margin-top: 6%;            
                 @media screen and (max-width: 1200px) {
-                    margin-top: 3%;
+                    margin-top: max(35px, 3%);
                     width: 50%;
                 }
                 @media screen and (max-width: 899px) {
@@ -375,8 +385,9 @@
                         width: 100%;
                     }
                     .item {
-                        @include adaptiveValue('width', 135, 50);
-                        @include adaptiveValue('height', 135, 50);
+                        @include adaptiveValue('width', 135, 60);
+                        @include adaptiveValue('height', 135, 60);
+                        @include decreaseSizeHover;
                         display: flex;
                         align-items: center;
                         border-radius: 50%;

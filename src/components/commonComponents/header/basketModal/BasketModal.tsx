@@ -1,6 +1,7 @@
 import { Modal } from "@mui/material";
 import { useSelector } from "react-redux";
 import { getBasketItemsSelector } from "../../../../redux/selectors";
+import { customerReducerActions } from "../../../../redux/customerReducer";
 import { UserCredentialsForm } from "../../userCredentialsForm/UserCredentialsForm";
 import { BasketItem } from "./BasketItem";
 import closeImg from "./../../../../static/img/commonComponents/close.png";
@@ -11,30 +12,39 @@ import { useModalStatus } from "../../../../hooks/useModalStatus";
 import { Pagination } from "./../../../commonComponents/pagination/Pagination";
 import { usePortion } from "./../../../../hooks/usePortion";
 import { useTranslation } from "react-i18next";
+import { useDispatch } from "react-redux";
+
+const createOrderNumber = () => Math.random().toString(36).slice(2, 8).toUpperCase();
 
 //I put this modal in the header because this modal must be in a component that is always rendered
 export const BasketModal: React.FC = () => {
     const { search } = useLocation();
-    const [isOpen, setIsOpen] = useState(false);
+    const dispatch = useDispatch();
     const { t } = useTranslation();
+    const closeModal = useModalStatus('close', 'basket');
+    let items = useSelector(getBasketItemsSelector);
+    const [isOpen, setIsOpen] = useState(false);
+    const [orderNumber, setOrderNumber] = useState(createOrderNumber());
+
     useEffect(() => {
         setIsOpen(search.includes('basket'));
     }, [search]);
-    const closeModal = useModalStatus('close', 'basket');
-    let items = useSelector(getBasketItemsSelector);
+
+    const userCredentialsFormCallback = () => {
+        dispatch(customerReducerActions.deleteBasketItems());
+        setOrderNumber(createOrderNumber());
+    };
 
     let Items = items.map(i => <BasketItem {...i} key={i.name.eng} />);
     let PortionOfItems = usePortion<JSX.Element[]>('basketPortion', Items, 3);
     let totalPrice = items.reduce((prev, curr) => prev + curr.count * curr.price, 0);
-
-    let orderNumber = Math.random().toString(36).slice(2, 8).toUpperCase();
 
     return <Modal className={c.modalContainer} open={isOpen} onClose={closeModal}>
         <div className={c.modal}>
             <img onClick={closeModal} className={c.close} alt={t('alts.close')} src={closeImg} />
             <div className={c.formContainer}>
                 <h3 className={c.article}>{t('header.basketModal.checkout')}</h3>
-                <UserCredentialsForm isItBasketItems signClassName={c.formSign} formClassName={c.form} />
+                <UserCredentialsForm callback={userCredentialsFormCallback} signClassName={c.formSign} formClassName={c.form} />
             </div>
             <div className={c.basketContainer}>
                 <div className={c.basketSignAndMobileOrderNumber}>

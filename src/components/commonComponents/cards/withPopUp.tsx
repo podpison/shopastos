@@ -42,21 +42,19 @@ export const withPopUp = (Component: React.FC, open: boolean, price: number, nam
                     {CarouselItems}
                 </Carousel>
                 <div className={c.contentContainer}>
-                    <Breadcrumbs />
+                    <Breadcrumbs className={c.breadcrumbs} />
                     <strong className={c.name}>{currentLanguageHelper(name)}</strong>
                     <p className={c.price}>{`${t('cards.price.price')}:`} {price} {t('cards.price.сurrency')}</p>
                     <p className={c.description}>{currentLanguageHelper(description)}</p>
-                    <div className={c.componentAndButtonAndDescriptionContainer}>
-                        <div className={c.componentAndButtonContainer}>
-                            {<Component />}
-                            <Button bold color='blue' onClick={orderButtonHandler}>{t('cards.orderSign')}</Button>
-                        </div>
+                    <div className={c.componentAndDescriptionContainer}>
+                        {<Component />}
                         <Accordion defaultExpanded className={c.characteristicsContainer}>
                             <AccordionSummary className={c.sign} expandIcon={<ExpandIcon />}>{t('cards.characteristicsSign')}</AccordionSummary>
                             <AccordionDetails className={c.detailsContainer}>
                                 {Characteristics}
                             </AccordionDetails>
                         </Accordion>
+                        <Button className={c.button} bold color='blue' onClick={orderButtonHandler}>{t('cards.orderSign')}</Button>
                     </div>
                 </div>
             </div>

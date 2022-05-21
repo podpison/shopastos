@@ -99,7 +99,6 @@ $grayColor: #454747;
   line-height: 130%;
   letter-spacing: 0.065em;
 }
-
 @mixin TextFieldError {
   p {
     position: absolute;
@@ -107,6 +106,12 @@ $grayColor: #454747;
     bottom: -20px;
     font-family: "gilroy";
     margin: 0;
+  }
+}
+@mixin decreaseSizeHover {
+  transition: transform 0.3s;
+  &:hover {
+      transform: scale(0.97);
   }
 }
 

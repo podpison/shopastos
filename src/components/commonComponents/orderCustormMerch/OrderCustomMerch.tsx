@@ -8,7 +8,7 @@ import { useTranslation } from "react-i18next";
 export const OrderCustomMerch: React.FC = () => {
     const { t } = useTranslation();
 
-    return <div className={c.orderCustomMerch}>
+    return <div id='orderCustomMerch' className={c.orderCustomMerch}>
         <div className={c.orderCustomMerchContent}>
             <div className={c.textsAndImagesContainer}>
                 <div className={c.texts}>

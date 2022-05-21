@@ -14,8 +14,9 @@
     grid-template-columns: 2fr 1fr;
     align-items: center;
     margin-bottom: -4px;
-    @media screen and (min-width: 441px) {
-        margin-top: 2.5%;
+    margin-top: 2.5%;
+    @media screen and (min-width: 899px) {
+        margin-top: 30px;
     }
     &.alternativeContainer {
         @include gridMobile1column;

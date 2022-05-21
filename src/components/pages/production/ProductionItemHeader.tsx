@@ -7,6 +7,7 @@ import { useBreadcrumbs } from "../../../hooks/useBreadcrumbs";
 import { getWhatWeCanCreateSelector } from "../../../redux/selectors";
 import { Button } from "../../commonComponents/button/Button";
 import c from "./production.module.scss";
+import { HashLink } from "react-router-hash-link";
 
 export const ProductionItemHeader: React.FC = () => {
     const { pathname } = useLocation();
@@ -20,7 +21,7 @@ export const ProductionItemHeader: React.FC = () => {
     useBreadcrumbs(name);
     
     const WithHeaderProductionItemHeader = withHeader(
-        () => <Button>{t('production.productionItemHeader.button')}</Button>,
+        () => <HashLink smooth to='#orderCustomMerch'><Button color='blue'>{t('production.productionItemHeader.button')}</Button></HashLink>,
         true,
         currentLanguageHelper(name),
         currentLanguageHelper(description),

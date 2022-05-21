@@ -7,6 +7,7 @@ import { withHeader } from "../../../HOC/withHeader/withHeader";
 import { Button } from "../../commonComponents/button/Button";
 import { useTranslation } from "react-i18next";
 import { currentLanguageHelper } from "../../../helpers/currentLanguageHelper";
+import { HashLink } from "react-router-hash-link";
 
 export const SewingItemHeader: React.FC = () => {
     const { pathname } = useLocation();
@@ -22,7 +23,7 @@ export const SewingItemHeader: React.FC = () => {
     const WithHeaderProductionItemHeader = withHeader(
         () => {
             return <div className={c.buttonAndSizesContainer}>
-                <Button color='blue'>{t('sewing.sewingItemHeader.button')}</Button>
+                <HashLink smooth to='#orderCustomMerch'><Button color='blue'>{t('sewing.sewingItemHeader.button')}</Button></HashLink>
                 <div className={c.sizesContainer}>
                     <p className={c.sign}>{t('sewing.sewingItemHeader.sign')}</p>
                     <ul className={c.sizes}>{avaliableSizes}</ul>

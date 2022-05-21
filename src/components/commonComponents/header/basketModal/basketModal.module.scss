@@ -113,6 +113,8 @@
                 width: 65%;
                 padding-left: 40px;
                 border-left: 2px solid $mainBlackColor;
+                display: grid;
+                grid-template-rows: auto 5fr auto;
             }
             .article, .totalPrice {
                 @include h3;
@@ -137,11 +139,9 @@
                 display: grid;
                 grid-template-rows: repeat(3, 1fr);
                 margin-top: 3%;
-                height: 65%;
                 gap: 10px;
                 @media screen and (max-width: 899px) {
                     grid-template-rows: repeat(auto-fit, minmax(min(100% / 3), max(85px, 100% / 3)));
-                    height: auto;
                     min-height: 85px;
                 }
                 @media screen and (max-width: 500px) {

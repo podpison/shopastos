@@ -4,7 +4,10 @@
     .textsContainer {
         width: 75%;
         @media screen and (max-width: 1000px) {
-            width: 86%;
+            width: 86%!important;
+        }
+        @media screen and (max-width: 899px) {
+            width: 100%!important;
         }
         p {
             @media screen and (min-width: 1401px) {
@@ -27,7 +30,7 @@
         }
         @media screen and (max-width: 899px) {
             transform: translateX(10%)!important;
-            width: 117%!important;
+            width: 119%!important;
         }
     }
     button {

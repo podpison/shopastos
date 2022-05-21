@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { IAllGoodsItem, IKitItem } from "../../../redux/staticReducer";
 import c from "./cards.module.scss";
 import { Pagination, PaginationNameType } from "../pagination/Pagination";
-import { usePortion } from "../../../hooks/usePortion";
+import { usePortion, UsePortionPortionNameType } from "../../../hooks/usePortion";
 
 type Props = {
     items: IAllGoodsItem[] | IKitItem[]
@@ -17,7 +17,7 @@ export const Cards: React.FC<Props> = ({ items, portion, paginationName, classNa
     let { pathname } = useLocation();
 
     let _Cards = items.map((i, index) => <Card pathname={pathname} {...i} key={index} />);
-    let CardsPortion = usePortion<JSX.Element[]>(paginationName, _Cards, portion);
+    let CardsPortion = usePortion<JSX.Element[]>(paginationName + 'Portion' as UsePortionPortionNameType, _Cards, portion);
 
     return <div id='cards' className={`${c.mainContainer} ${className}`}>
         {article && <h2 className={c.article}>{article}</h2>}

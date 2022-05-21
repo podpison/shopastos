@@ -132,6 +132,7 @@
     }
     @media screen and (max-width: 768px) {
         grid-template-columns: 1fr;
+        margin-top: 50px;
     }
     .contactsContainer {
         .article {
@@ -172,6 +173,9 @@
             @include article;
             @media screen and (max-width: 1200px) {
                 margin-top: 6.1%;
+            }
+            @media screen and (max-width: 768px) {
+                margin-top: 50px;
             }
         }
         .userCredentialsForm {

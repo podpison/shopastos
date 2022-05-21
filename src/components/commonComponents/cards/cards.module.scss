@@ -42,8 +42,10 @@
                     color: #C4C4C4;
                 }
                 .basket {
-                    @include adaptiveValue('width', 45, 34);
                     cursor: pointer;
+                    img {
+                        @include adaptiveValue('width', 45, 34);
+                    }
                 }
             }
         }
@@ -59,7 +61,7 @@
         grid-template-columns: minmax(0, 3fr) minmax(0, 4fr);
         gap: 55px;
         width: 1040px;
-        height: 625px;
+        height: 678px;
         border-radius: 25px;
         background-color: white;
         transform: translate(-50%, -50%);
@@ -68,10 +70,8 @@
         top: 50%;
         padding: 30px;
         font-family: 'gilroy';
-        @media screen and (max-width: 1300px) {
+        @media screen and (max-width: 1200px) {
             width: 92%;
-            height: 60%;
-            grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
         }
         .closeIcon {
             @include adaptiveValue('width', 50, 20);
@@ -112,25 +112,15 @@
             }
         }
         .carousel {
-            div[class="slick-list"] {
-                height: 85%;
-                & > div[class="slick-track"] {
-                    height: 100%;
-                    & > div > div {
-                        height: 100%;
-                        img {
-                            height: 99%;
-                        }
-                    }
-                }
-            }
             .pagingItem {
-                height: 180%;
-                max-height: 92px;
+                height: 100%;
                 width: 100%;
             }
         }
         .contentContainer {
+            .breadcrumbs {
+                width: 90%;
+            }
             .name {
                 @include adaptiveValue('font-size', 32, 18);
                 font-weight: 700;
@@ -147,32 +137,28 @@
                 color: $grayColor;
                 margin-top: 2%;
             }
-            .componentAndButtonAndDescriptionContainer {
+            .componentAndDescriptionContainer {
                 margin-top: 4.5%;
-                .componentAndButtonContainer {
-                    display: flex;
-                    justify-content: space-between;
-                    .sizesContainer {
-                        .sign {
-                            font-size: 18px;
-                            font-weight: 600;
-                        }
-                        .sizes {
-                            margin-top: 5%;
-                            display: flex;
-                            align-items: center;
-                            .size {
-                                color: #524983;
-                                font-size: 14px;
-                                cursor: pointer;
-                                &:not(:first-child) {
-                                    margin-left: 20px;
-                                }
-                                &.activeSize {
-                                    color: $mainBlackColor;
-                                    font-size: 16px;
-                                    font-weight: 600;
-                                }
+                .sizesContainer {
+                    .sign {
+                        font-size: 18px;
+                        font-weight: 600;
+                    }
+                    .sizes {
+                        margin-top: 5%;
+                        display: flex;
+                        align-items: center;
+                        .size {
+                            color: #524983;
+                            font-size: 14px;
+                            cursor: pointer;
+                            &:not(:first-child) {
+                                margin-left: 20px;
+                            }
+                            &.activeSize {
+                                color: $mainBlackColor;
+                                font-size: 16px;
+                                font-weight: 600;
                             }
                         }
                     }
@@ -211,6 +197,9 @@
                             }
                         }
                     }
+                }
+                .button {
+                    margin-top: 4.5%;
                 }
             }
         }

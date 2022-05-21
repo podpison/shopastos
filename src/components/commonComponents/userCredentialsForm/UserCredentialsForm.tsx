@@ -2,7 +2,7 @@ import * as Yup from "yup";
 import { Formik } from "formik";
 import { TextField } from "@mui/material";
 import { useDispatch } from "react-redux";
-import { setNewManagerClient, customerReducerActions } from "../../../redux/customerReducer";
+import { setNewManagerClient } from "../../../redux/customerReducer";
 import c from "./userCredentialsForm.module.scss";
 import { Button } from "../button/Button";
 import { useTranslation } from "react-i18next";
@@ -14,11 +14,11 @@ type Props = {
     className?: string
     formClassName?: string
     signClassName?: string
-    isItBasketItems?: boolean
     changedFormContainer?: boolean
+    callback?: () => void
 }
 
-export const UserCredentialsForm: React.FC<Props> = ({ className, formClassName, signClassName, isItBasketItems = false, changedFormContainer = false }) => {
+export const UserCredentialsForm: React.FC<Props> = ({ className, formClassName, signClassName, changedFormContainer = false, callback }) => {
     const dispatch = useDispatch();
     const { t } = useTranslation();
 
@@ -42,7 +42,7 @@ export const UserCredentialsForm: React.FC<Props> = ({ className, formClassName,
             onSubmit={(values, { validateForm, resetForm }) => {
                 validateForm();
                 dispatch(setNewManagerClient(values));
-                isItBasketItems && dispatch(customerReducerActions.deleteBasketItems());
+                callback && callback();
                 resetForm();
             }}
         >
