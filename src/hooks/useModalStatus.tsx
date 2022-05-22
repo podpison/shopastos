@@ -13,5 +13,5 @@ export function useModalStatus<T extends OperationType>(operation: T, modalName:
         return () => navigate({search: search.split('?').slice(1).filter(i => !i.includes(modalName)).join('?')});
     }
     //@ts-ignore
-    return `${pathname}?${modalName}=true`;
+    return `${pathname}${search}?${modalName}=true`;
 };

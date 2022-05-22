@@ -34,8 +34,7 @@ const responsive = [
             vertical: true,
             verticalSwiping: true,
             slidesToShow: 2,
-            slidesToScroll: 2,
-            adaptiveHeight: true
+            slidesToScroll: 2
         }
     }
 ];

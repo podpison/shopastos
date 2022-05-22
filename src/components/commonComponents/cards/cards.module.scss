@@ -112,6 +112,21 @@
             }
         }
         .carousel {
+            & > div[class=slick-list] {
+                height: 87%;
+                & > div[class=slick-track] {
+                    height: 100%;
+                    & > div {
+                        height: 100%;
+                        & > div {
+                            height: 100%;
+                            img {
+                                height: 100%
+                            }
+                        }
+                    }
+                }
+            }
             .pagingItem {
                 height: 100%;
                 width: 100%;
@@ -120,6 +135,7 @@
         .contentContainer {
             .breadcrumbs {
                 width: 90%;
+                margin-bottom: 5.3%;
             }
             .name {
                 @include adaptiveValue('font-size', 32, 18);
@@ -130,12 +146,12 @@
             .price {
                 @include adaptiveValue('font-size', 24, 18);
                 font-weight: 600;
-                margin-top: 4.5%;
+                margin-top: 5.3%;
             }
             .description {
                 line-height: 130%;
                 color: $grayColor;
-                margin-top: 2%;
+                margin-top: 1.8%;
             }
             .componentAndDescriptionContainer {
                 margin-top: 4.5%;
@@ -145,7 +161,7 @@
                         font-weight: 600;
                     }
                     .sizes {
-                        margin-top: 5%;
+                        margin-top: 1.8%;
                         display: flex;
                         align-items: center;
                         .size {
@@ -199,7 +215,7 @@
                     }
                 }
                 .button {
-                    margin-top: 4.5%;
+                    margin-top: 5.3%;
                 }
             }
         }

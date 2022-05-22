@@ -115,8 +115,10 @@ $grayColor: #454747;
   }
 }
 
-body {
-  color: $mainBlackColor;
-  font-family: 'gilroy';
+html {
   overflow-x: hidden;
+  body {
+    color: $mainBlackColor;
+    font-family: 'gilroy';
+  }
 }
