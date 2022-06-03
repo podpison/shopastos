@@ -15,9 +15,9 @@ export const Contacts: React.FC<Props> = ({ className, closeBurger }) => {
             <a onClick={closeBurger} className={c.email} href="mailto:example@gmail.com">example@gmail.com</a>
         </div>
         <div className={c.socialNetworksContainer}>
-            <a onClick={closeBurger} target='_blank' href='https://m.facebook.com'><FacebookIcon /></a>
-            <a onClick={closeBurger} target='_blank' href='https://www.instagram.com'><InstagramIcon /></a>
-            <a onClick={closeBurger} target='_blank' href='http://ww38.www.linkedin.com'><LinkedInIcon /></a>
+            <a onClick={closeBurger} target='_blank' rel="noreferrer" href='https://m.facebook.com'><FacebookIcon /></a>
+            <a onClick={closeBurger} target='_blank' rel="noreferrer" href='https://www.instagram.com'><InstagramIcon /></a>
+            <a onClick={closeBurger} target='_blank' rel="noreferrer" href='http://ww38.www.linkedin.com'><LinkedInIcon /></a>
         </div>
     </div>
 };

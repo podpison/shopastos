@@ -12,5 +12,6 @@ export const useBreadcrumbs = (item: RusEngTextType, isCardPopUpOpen?: boolean) 
         return () => {
             dispatch(breadcrumbsReducerActions.setItemStauts(item, 'delete'));
         };
-    }, []); //@eslint-disable-line react-hooks/exhaustive-deps
+        //@eslint-disable-next-line
+    }, []);
 };

@@ -68,10 +68,24 @@
         position: absolute;
         left: 50%;
         top: 50%;
-        padding: 30px;
+        padding: min(1.6%, 30px);
         font-family: 'gilroy';
+        box-sizing: border-box;
         @media screen and (max-width: 1200px) {
+            width: 96%;
+        }
+        @media screen and (max-width: 899px) {
             width: 92%;
+            grid-template-columns: minmax(0, 1fr);
+            gap: 35px;
+            height: fit-content;
+            grid-template-rows: 35vh auto;
+            inset: 0;
+            transform: none;
+            margin: auto;
+            @media screen and (max-height: 650px) and (min-width: 899px) {
+                margin: 30px auto;
+            }
         }
         .closeIcon {
             @include adaptiveValue('width', 50, 20);
@@ -80,6 +94,19 @@
             top: 0;
             margin: 1.5% 1.5% 0 0;
             cursor: pointer;
+            @media screen and (max-width: 899px) {
+                margin: 0;
+                filter: invert(100%);
+                margin: 0;
+                right: -1vw;
+                top: -5vw;
+            }
+            @media screen and (max-width: 500px) {
+                top: -6vw;
+            }
+            @media screen and (max-width: 440px) {
+                top: -7vw;
+            }
         }
         & > div > ul { //dots container
             position: initial;
@@ -88,11 +115,17 @@
             gap: 10px;
             grid-template-columns: repeat(5, 1fr);
             margin-top: 5px;
+            @media screen and (max-width: 899px) {
+                height: 6.5vh;
+            }
             li {
                 width: 100%;
                 height: 100%;
                 opacity: 0.7;
                 margin: 0;
+                @media screen and (max-width: 899px) {
+                    height: 6.5vh;
+                }
             }
             li[class='slick-active'] {
                 opacity: 1;
@@ -113,7 +146,10 @@
         }
         .carousel {
             & > div[class=slick-list] {
-                height: 87%;
+                height: 80%;
+                @media screen and (max-width: 1200px) {
+                    height: 74%;
+                }
                 & > div[class=slick-track] {
                     height: 100%;
                     & > div {
@@ -130,6 +166,9 @@
             .pagingItem {
                 height: 100%;
                 width: 100%;
+                @media screen and (max-width: 899px) {
+                    height: 70px;
+                }
             }
         }
         .contentContainer {
@@ -144,7 +183,7 @@
                 display: block;
             }
             .price {
-                @include adaptiveValue('font-size', 24, 18);
+                @include adaptiveValue('font-size', 24, 16);
                 font-weight: 600;
                 margin-top: 5.3%;
             }
@@ -216,6 +255,9 @@
                 }
                 .button {
                     margin-top: 5.3%;
+                    @media screen and (max-width: 440px) {
+                        width: 100%;
+                    }
                 }
             }
         }
