@@ -10,7 +10,6 @@ import { IAllGoodsItem, IKitItem } from "./../../../redux/staticReducer";
 import { Link } from "react-router-dom";
 import { wordToPathHelper } from "./../../../helpers/wordToPathHelper";
 import { currentLanguageHelper } from "../../../helpers/currentLanguageHelper";
-// import { createFilterOptions } from "@mui/material/Autocomplete";
 
 const checkItemType = (item: IAllGoodsItem | IKitItem): item is IAllGoodsItem => {
     return (item as IAllGoodsItem).category !== undefined;

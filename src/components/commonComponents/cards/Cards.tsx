@@ -1,12 +1,12 @@
 import { Card } from "./Card";
 import { useLocation } from "react-router-dom";
-import { IAllGoodsItem, IKitItem } from "../../../redux/staticReducer";
+import { IItem } from "../../../redux/staticReducer";
 import c from "./cards.module.scss";
 import { Pagination, PaginationNameType } from "../pagination/Pagination";
 import { usePortion, UsePortionPortionNameType } from "../../../hooks/usePortion";
 
 type Props = {
-    items: IAllGoodsItem[] | IKitItem[]
+    items: IItem[]
     portion: number
     paginationName: PaginationNameType
     className?: string

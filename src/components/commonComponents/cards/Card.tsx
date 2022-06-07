@@ -4,24 +4,21 @@ import basketImg from "./../../../static/img/commonComponents/card/basket.png";
 import { Link } from "react-router-dom";
 import { wordToPathHelper } from "../../../helpers/wordToPathHelper";
 import { useState, useEffect } from "react";
-import { AllGoodsItemPopUp } from "./AllGoodsItemPopUp";
-import { IAllGoodsItem, IKitItem, IAllGoodsItemPopUp, IKitItemPopUp } from "../../../redux/staticReducer";
-import { KitsItemPopUp } from "./KitsItemPopUp";
+import { IItem } from "../../../redux/staticReducer";
+import { PopUp } from "./PopUp";
 import { useTranslation } from "react-i18next";
 import { currentLanguageHelper } from "../../../helpers/currentLanguageHelper";
 import { useLocation } from "react-router-dom";
+import { useBreadcrumbsCallback } from "./../../../hooks/useBreadcrumbsCallback";
 
 type Props = {
     pathname: string
-} & (IAllGoodsItem | IKitItem);
-
-const isAllGoodsItemPopUp = (popUpData: IAllGoodsItemPopUp | IKitItemPopUp): popUpData is IAllGoodsItemPopUp => {
-    return (popUpData as IAllGoodsItemPopUp).sizes ? true : false;
-}
+} & IItem;
 
 export const Card: React.FC<Props> = ({ img, name, price, popUpData }) => {
     const { t } = useTranslation();
     let { pathname, search } = useLocation();
+    const breadcrumbsCallback = useBreadcrumbsCallback();
 
     let linkPath = `${pathname}?item=${wordToPathHelper(name.eng)}${search}`;
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -37,11 +34,9 @@ export const Card: React.FC<Props> = ({ img, name, price, popUpData }) => {
             </CardContent>
             <CardActions className={c.actions}>
                 <p className={c.price}>{`${t('cards.price.price')}:`} {price} ₽</p>
-                <Link className={c.basket} to={linkPath}><img alt={t('alts.basket')} src={basketImg} /></Link>
+                <Link onClick={() => breadcrumbsCallback(name)} className={c.basket} to={linkPath}><img alt={t('alts.basket')} src={basketImg} /></Link>
             </CardActions>
         </MUICard>
-        {isAllGoodsItemPopUp(popUpData)
-        ? <AllGoodsItemPopUp open={isModalOpen} name={name} price={price} popUpData={popUpData} />
-        : <KitsItemPopUp open={isModalOpen} name={name} price={price} popUpData={popUpData} />}
+        <PopUp open={isModalOpen} name={name} price={price} popUpData={popUpData} />
     </>
 };

@@ -5,6 +5,7 @@ import { ActionsType, RusEngArrayTextType, RusEngTextType } from "./store";
 export interface IItemPopUp {
     description: RusEngTextType
     images: string[]
+    sizes: string[]
     characteristics: {
         name: RusEngTextType,
         characteristic: RusEngArrayTextType
@@ -53,22 +54,11 @@ export interface IWhatWeCanCreate extends IWhatWeCanDo {
 
 };
 
-export interface IAllGoodsItemPopUp extends IItemPopUp {
-    sizes: string[] 
-}
 export interface IAllGoodsItem extends IItem {
     category: RusEngTextType
     subcategory: RusEngTextType
-    popUpData: IAllGoodsItemPopUp
     priority?: 0 | 1 | 2 | 3 
     discount?: string
-};
-
-export interface IKitItemPopUp extends IItemPopUp {
-
-}
-export interface IKitItem extends IItem { 
-    popUpData: IKitItemPopUp
 };
 
 const initialState = {
@@ -76,7 +66,7 @@ const initialState = {
     whatWeCanSew: [] as IWhatWeCanSew[],
     allGoodsItems: [] as IAllGoodsItem[],
     whatWeCanCreate: [] as IWhatWeCanCreate[],
-    kitItems: [] as IKitItem[],
+    kitItems: [] as IItem[],
 };
 
 export type StaticReducerStateKeysType = keyof typeof initialState;

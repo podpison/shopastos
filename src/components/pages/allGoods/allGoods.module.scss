@@ -40,18 +40,19 @@
     .categoriesContainer {
         display: flex;
         border-top: 8px solid #F2F1F8;
-        & > li, & > div > ul {
+        & > li, & > div > div > ul {
             padding: 2.4vw 15px 0!important;
         }
         & > li {
             @include upperlineHover;
         }
-        & > div { // categories
+        & > div > div { // categories
             display: flex!important;
             padding-bottom: 0;
             background-color: initial;
             position: static;
             top: 0;
+            overflow: scroll clip;
             &::before {
                 content: none;
             }
