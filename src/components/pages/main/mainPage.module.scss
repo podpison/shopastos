@@ -173,7 +173,12 @@
             grid-template-rows: 49% 49%;
             max-height: calc(26vw + 100px);
             & > a {
-                @include decreaseSizeHover;
+                position: relative;
+                &:hover {
+                    .name {
+                        opacity: 1;
+                    }
+                }
             }
             @media screen and (min-width: 1921px) {
                 max-height: 600px;
@@ -228,6 +233,23 @@
                 width: 100%;
                 height: 100%;
                 border-radius: 15px;
+            }
+            .name {
+                opacity: 0;
+                position: absolute;
+                display: flex;
+                bottom: 0;
+                color: white;
+                height: 100%;
+                width: 100%;
+                font-size: 35px;
+                background-color: rgba(0, 0, 0, 0.87);
+                border-radius: 15px;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                transition: 0.3s;
+                text-decoration: underline;
             }
          }
     }
@@ -331,6 +353,8 @@
             .stuffImg {
                 min-height: 532px;
                 width: 100%;
+                border-radius: 15px;
+                
                 object-fit: cover;
                 @media screen and (max-width: 1200px) and (min-width: 900px) {
                     max-height: 51vw;

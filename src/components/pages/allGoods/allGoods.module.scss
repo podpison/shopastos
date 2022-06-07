@@ -40,13 +40,13 @@
     .categoriesContainer {
         display: flex;
         border-top: 8px solid #F2F1F8;
-        & > li, & > div > div > ul {
+        & > li, & > ul > ul > ul {
             padding: 2.4vw 15px 0!important;
         }
         & > li {
             @include upperlineHover;
         }
-        & > div > div { // categories
+        & > ul > ul { // categories
             display: flex!important;
             padding-bottom: 0;
             background-color: initial;

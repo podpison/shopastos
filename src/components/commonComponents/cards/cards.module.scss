@@ -55,39 +55,38 @@
     }
 }
 .withPopUpContainer {
-    @media screen and (max-width: 899px) {
-        overflow-y: scroll;
-    }
+    overflow-y: auto;
     .withPopUp {
         display: grid;
         grid-template-columns: minmax(0, 3fr) minmax(0, 4fr);
         gap: 55px;
         width: 1040px;
-        height: 680px;
+        height: 690px;
         border-radius: 25px;
         background-color: white;
         transform: translate(-50%, -50%);
         position: absolute;
         left: 50%;
         top: 50%;
-        padding: min(1.6%, 30px);
+        padding: 30px;
         font-family: 'gilroy';
         box-sizing: border-box;
         @media screen and (max-width: 1200px) {
             width: 96%;
+            height: 615px;
+            position: static;
+            transform: none;
+            gap: 30px;
+            padding: 20px;
+            margin: 30px auto;
         }
         @media screen and (max-width: 899px) {
             width: 92%;
             grid-template-columns: minmax(0, 1fr);
-            gap: 35px;
             height: fit-content;
-            grid-template-rows: 35vh auto;
-            inset: 0;
-            transform: none;
-            margin: auto;
-            @media screen and (max-height: 650px) and (min-width: 899px) {
-                margin: 30px auto;
-            }
+            grid-template-rows: 300px auto;
+            gap: 20px;
+            padding: 15px;
         }
         .closeIcon {
             @include adaptiveValue('width', 50, 20);
@@ -116,8 +115,11 @@
             gap: 10px;
             grid-template-columns: repeat(5, 1fr);
             margin-top: 5px;
+            @media screen and (max-width: 1200px) and (min-width: 900px) {
+                margin-top: 0px;
+            }
             @media screen and (max-width: 899px) {
-                height: 6.5vh;
+                height: 55px;
             }
             li {
                 width: 100%;
@@ -125,7 +127,7 @@
                 opacity: 0.7;
                 margin: 0;
                 @media screen and (max-width: 899px) {
-                    height: 6.5vh;
+                    height: 55px;
                 }
             }
             li[class='slick-active'] {
@@ -147,18 +149,22 @@
         }
         .carousel {
             & > div[class=slick-list] {
-                height: 80%;
-                @media screen and (max-width: 1200px) {
-                    height: 74%;
+                height: 88%;
+                @media screen and (max-width: 899px) {
+                    height: 80%;
                 }
                 & > div[class=slick-track] {
-                    height: 550px;
+                    height: 100%;
                     & > div {
                         
                         & > div {
                             height: 100%;
                             img {
-                                height: 100%
+                                height: 100%;
+                                border-radius: 15px;
+                                @media screen and (max-width: 1200px) {
+                                    max-height: 497px;
+                                }
                             }
                         }
                     }
@@ -167,12 +173,24 @@
             .pagingItem {
                 width: 100%;
                 height: 70px;
+                @media screen and (max-width: 899px) {
+                    height: 100%;
+                }
             }
         }
         .contentContainer {
+            display: grid;
+            grid-template-rows: 52px 35px 42px 125px 374px;
+            @media screen and (max-width: 1200px) {
+                grid-template-rows: 52px 32px 35px 85px 371px;
+            }
+            @media screen and (max-width: 899px) {
+                grid-template-rows: 30px 35px 85px 415px;
+            }
             .breadcrumbs {
                 width: 90%;
-                margin-bottom: 5.3%;
+                margin-bottom: 0;
+                overflow-y: auto;
             }
             .name {
                 @include adaptiveValue('font-size', 32, 18);
@@ -183,22 +201,27 @@
             .price {
                 @include adaptiveValue('font-size', 24, 16);
                 font-weight: 600;
-                margin-top: 5.3%;
             }
             .description {
                 line-height: 130%;
                 color: $grayColor;
-                margin-top: 1.8%;
+                overflow-y: auto;
             }
             .componentAndDescriptionContainer {
-                margin-top: 4.5%;
+                margin-top: auto;
+                display: flex;
+                height: 364px;
+                flex-direction: column;
+                @media screen and (max-width: 899px) {
+                    height: 402px;
+                }
                 .sizesContainer {
                     .sign {
                         font-size: 18px;
                         font-weight: 600;
                     }
                     .sizes {
-                        margin-top: 1.8%;
+                        margin-top: 10px;
                         display: flex;
                         align-items: center;
                         .size {
@@ -218,8 +241,14 @@
                 }
                 .characteristicsContainer {
                     box-shadow: none;
-                    margin-top: 5%;
+                    margin-top: 26px;
                     color: $mainBlackColor;
+                    @media screen and (max-width: 1200px) {
+                        margin-top: 13px;
+                    }
+                    @media screen and (max-width: 899px) {
+                        margin-top: 20px;
+                    }
                     &::before {
                         display: none;
                     }
@@ -246,6 +275,11 @@
                             grid-template-columns: 1fr 1fr;
                             padding: 15px 0;
                             border-bottom: 1px solid #524983;
+                            @media screen and (max-width: 899px) {
+                                grid-template-columns: 1fr;
+                                gap: 5px;
+                                padding: 10px 0;
+                            }
                             span:last-child  {
                                 color: $grayColor;
                             }
@@ -253,7 +287,7 @@
                     }
                 }
                 .button {
-                    margin-top: 3%;
+                    margin-top: auto;
                     @media screen and (max-width: 440px) {
                         width: 100%;
                     }

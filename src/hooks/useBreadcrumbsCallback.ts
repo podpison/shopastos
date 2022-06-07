@@ -8,7 +8,6 @@ import { RusEngTextType } from "../redux/store";
 export const useBreadcrumbsCallback = () => {
     const dispatch = useDispatch();
     let items = useSelector(getBreadcrumbsItemSelector);
-    let fullPath = pathname + search;
     useEffect(() => {
         return () => {
             window.screen.width > 899 && dispatch(breadcrumbsReducerActions.setFiltredItems([]));

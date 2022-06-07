@@ -6,7 +6,6 @@ import { RusEngTextType } from "../../../redux/store";
 import c from "./allGoodsCategories.module.scss";
 import { wordToPathHelper } from "./../../../helpers/wordToPathHelper";
 import { currentLanguageHelper } from "./../../../helpers/currentLanguageHelper";
-import { useBreadcrumbsCallback } from "./../../../hooks/useBreadcrumbsCallback";
 import { useTranslation } from "react-i18next";
 
 type Props = {
@@ -21,12 +20,7 @@ type CategoriesType = {
 
 export const AllGoodsCategories: React.FC<Props> = ({categoriesContainer, onClick}) => {
     let itemsData = useSelector(getAllGoodsItemsSelector);
-    const breadcrumbsCallback = useBreadcrumbsCallback();
     const { t } = useTranslation();
-    let addBreadcrumb = (category: RusEngTextType, subcategory?: RusEngTextType) => {
-        breadcrumbsCallback(category);
-        subcategory && breadcrumbsCallback(subcategory);
-    };
     let categories = [] as CategoriesType;
     for (let item of itemsData) { //creating categories
         let currentCategory = categories.find(c => c.category.eng === item.category.eng);
@@ -47,17 +41,19 @@ export const AllGoodsCategories: React.FC<Props> = ({categoriesContainer, onClic
         let editedCategoryName = wordToPathHelper(i.category.eng);
         let linkPath = `/allGoods/${editedCategoryName}`;
         let subcategories = categories.find(c => c.category.eng === i.category.eng)?.subcategories;
-        let Subcategories = subcategories?.map((s, index) => <li onClick={() => addBreadcrumb(i.category, s)} key={index}><Link to={linkPath + '/' + wordToPathHelper(s.eng)}>{currentLanguageHelper(s)}</Link></li>);
+        let Subcategories = subcategories?.map((s, index) => <li key={index}><Link to={linkPath + '/' + wordToPathHelper(s.eng)}>{currentLanguageHelper(s)}</Link></li>);
         return <ul className={c.categoryContainer} key={index}>
-            <li onClick={() => addBreadcrumb(i.category)}><Link to={linkPath}>{currentLanguageHelper(i.category)}</Link></li>
+            <li><Link to={linkPath}>{currentLanguageHelper(i.category)}</Link></li>
             <ul className={c.subcategoriesContainer}>{Subcategories}</ul>
         </ul>
     });
 
     return <ul onClick={onClick} className={`${c.categoriesContainer} ${categoriesContainer}`}>
         <li><NavLink to='/allGoods'>{t('allGoods.categories.allGoods')}</NavLink></li>
-        <div className={c.itemsContainer}>
-            {Items}
-        </div>
+        <ul className={c.itemsContainer}>
+            <ul>
+                {Items}
+            </ul>
+        </ul>
     </ul>
 };

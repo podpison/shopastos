@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { RusEngTextType } from "../../../../redux/store";
 import c from "./../mainPage.module.scss";
 import { wordToPathHelper } from "./../../../../helpers/wordToPathHelper";
+import { currentLanguageHelper } from "./../../../../helpers/currentLanguageHelper";
 
 type Props = {
     name: RusEngTextType
@@ -17,5 +18,6 @@ export const Item: React.FC<Props> = ({ name, subcategory, category, img, priori
 
     return <Link className={c['good' + priority]} to={`/allGoods/${wordToPathHelper(category.eng)}/${wordToPathHelper(subcategory.eng)}?item=${wordToPathHelper(name.eng)}`}>
         <img alt={t('alts.good')} src={img} />
+        <p className={c.name}>{currentLanguageHelper(name)}</p>
     </Link>
 };

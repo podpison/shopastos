@@ -6,9 +6,7 @@
 }
 
 .modalContainer {
-    @media screen and (max-width: 899px) {
-        overflow: scroll;
-    }
+    overflow-y: auto;
     .modal {
         display: flex;
         background-color: #FAFAFA;

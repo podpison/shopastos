@@ -4,27 +4,31 @@ import basketImg from "./../../../static/img/commonComponents/card/basket.png";
 import { Link } from "react-router-dom";
 import { wordToPathHelper } from "../../../helpers/wordToPathHelper";
 import { useState, useEffect } from "react";
-import { IItem } from "../../../redux/staticReducer";
+import { IItem, IAllGoodsItem } from "../../../redux/staticReducer";
 import { PopUp } from "./PopUp";
 import { useTranslation } from "react-i18next";
 import { currentLanguageHelper } from "../../../helpers/currentLanguageHelper";
 import { useLocation } from "react-router-dom";
-import { useBreadcrumbsCallback } from "./../../../hooks/useBreadcrumbsCallback";
 
 type Props = {
     pathname: string
-} & IItem;
+} & (IItem | IAllGoodsItem);
 
-export const Card: React.FC<Props> = ({ img, name, price, popUpData }) => {
+const checkItemType = (item: IAllGoodsItem | IItem): item is IAllGoodsItem => {
+    return (item as IAllGoodsItem).category !== undefined;
+};
+
+export const Card: React.FC<Props> = (props) => {
+    let { img, name, price, popUpData } = props;
     const { t } = useTranslation();
     let { pathname, search } = useLocation();
-    const breadcrumbsCallback = useBreadcrumbsCallback();
 
     let linkPath = `${pathname}?item=${wordToPathHelper(name.eng)}${search}`;
     const [isModalOpen, setIsModalOpen] = useState(false);
     useEffect(() => {
         setIsModalOpen(search.includes(wordToPathHelper(name.eng)));
     }, [search, name.eng]);
+    let categoryAndSubcategory = checkItemType(props) ? {category: props.category, subcategory: props.subcategory} : null
 
     return <>
         <MUICard className={c.cardContainer}>
@@ -34,9 +38,9 @@ export const Card: React.FC<Props> = ({ img, name, price, popUpData }) => {
             </CardContent>
             <CardActions className={c.actions}>
                 <p className={c.price}>{`${t('cards.price.price')}:`} {price} ₽</p>
-                <Link onClick={() => breadcrumbsCallback(name)} className={c.basket} to={linkPath}><img alt={t('alts.basket')} src={basketImg} /></Link>
+                <Link className={c.basket} to={linkPath}><img alt={t('alts.basket')} src={basketImg} /></Link>
             </CardActions>
         </MUICard>
-        <PopUp open={isModalOpen} name={name} price={price} popUpData={popUpData} />
+        <PopUp open={isModalOpen} name={name} price={price} popUpData={popUpData} categoryAndSubcategory={categoryAndSubcategory} />
     </>
 };

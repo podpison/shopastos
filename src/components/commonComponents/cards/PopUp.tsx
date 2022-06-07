@@ -14,15 +14,21 @@ import { Button } from "../button/Button";
 import { useTranslation } from "react-i18next";
 import { currentLanguageHelper } from "../../../helpers/currentLanguageHelper";
 import { useEffect, useState } from "react";
+import { useBreadcrumbsCallback } from "./../../../hooks/useBreadcrumbsCallback";
 
 type Props = {
     open: boolean
     price: number
     name: RusEngTextType
     popUpData: IItemPopUp
+    categoryAndSubcategory: {
+        category: RusEngTextType
+        subcategory: RusEngTextType
+    } | null
 }
-export const PopUp: React.FC<Props> = ({ open, price, name, popUpData }) => {
+export const PopUp: React.FC<Props> = ({ open, price, name, popUpData, categoryAndSubcategory }) => {
     let { characteristics, description, images, sizes } = popUpData;
+    const breadcrumbsCallback = useBreadcrumbsCallback();
     useBreadcrumbs(name, open);
     const { t } = useTranslation();
     const dispatch = useDispatch();
@@ -31,6 +37,13 @@ export const PopUp: React.FC<Props> = ({ open, price, name, popUpData }) => {
     useEffect(() => {
         setCurrentSize(popUpData.sizes[0])
     }, [popUpData.sizes]);
+    useEffect(() => {
+        if (categoryAndSubcategory) {
+            breadcrumbsCallback(categoryAndSubcategory.category);
+            breadcrumbsCallback(categoryAndSubcategory.subcategory);
+        }
+        breadcrumbsCallback(name);
+    }, []);
 
     let CarouselItems = images.map((i, index) => <img className={c.carouselItem} key={index} src={i} alt={t('alts.product')} />);
     let Characteristics = characteristics.map((c, index) => <p key={index}><span>{currentLanguageHelper(c.name)}:</span> <span>{currentLanguageHelper<string[]>(c.characteristic).join(' ,')}</span></p>);
@@ -40,7 +53,6 @@ export const PopUp: React.FC<Props> = ({ open, price, name, popUpData }) => {
         dispatch(customerReducerActions.addNewBasketItem({ name, img: images[0], price, count: 1, size: currentSize }));
         closeModal();
     };
-
     let Sizes = sizes.map((s, index) => <li onClick={() => setCurrentSize(s)} className={currentSize === s ? `${c.size} ${c.activeSize}` : c.size} key={index}>{s}</li>);
 
     return <Modal className={c.withPopUpContainer} onClose={closeModal} open={open}>
