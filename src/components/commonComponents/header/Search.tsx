@@ -1,6 +1,5 @@
 import SearchIcon from "@mui/icons-material/Search";
 import { TextField, InputAdornment, Autocomplete, createFilterOptions } from "@mui/material";
-import { useState } from "react";
 import c from "./header.module.scss";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
@@ -10,6 +9,7 @@ import { IAllGoodsItem, IItem } from "./../../../redux/staticReducer";
 import { Link } from "react-router-dom";
 import { wordToPathHelper } from "./../../../helpers/wordToPathHelper";
 import { currentLanguageHelper } from "../../../helpers/currentLanguageHelper";
+import { useRef } from "react";
 
 const checkItemType = (item: IAllGoodsItem | IItem): item is IAllGoodsItem => {
     return (item as IAllGoodsItem).category !== undefined;
@@ -17,18 +17,19 @@ const checkItemType = (item: IAllGoodsItem | IItem): item is IAllGoodsItem => {
 
 type Props = {
     className?: string
+    hideSearch: () => void
+    isSearchShown: boolean
 };
 
 type ItemType = IAllGoodsItem | IItem;
 
-export const Search: React.FC<Props> = ({ className }) => {
+export const Search: React.FC<Props> = ({ hideSearch, className, isSearchShown }) => {
     useStaticItems('allGoodsItems');
     useStaticItems('kitItems');
     let allGoodsItems = useSelector(getAllGoodsItemsSelector);
     let kitsItems = useSelector(getKitItemsSelector);
-
-    const [inputValue, setInputValue] = useState('');
     const { t } = useTranslation();
+    const textFieldRef = useRef<HTMLInputElement>(null);
 
     let currentLanguage = currentLanguageHelper<null>(null);
     const filterOptions = createFilterOptions({
@@ -37,72 +38,25 @@ export const Search: React.FC<Props> = ({ className }) => {
 
     let items: ItemType[] = [...allGoodsItems, ...kitsItems];
 
-    // return <Autocomplete className={`${c.searchContainer} ${className}`} options={items} disablePortal filterOptions={filterOptions}
-    //     getOptionLabel={option => option.name ? currentLanguageHelper(option.name) : ''}
-    //     renderInput={
-    //         (params) =>
-    //             <TextField {...params} autoComplete='off' InputProps={{
-    //                 startAdornment: (
-    //                     <InputAdornment position="start">
-    //                         <SearchIcon />
-    //                     </InputAdornment>
-    //                 )
-    //             }} className={c.search} placeholder={t('header.computerHeader.search')} />
-    //     }
-    //     renderOption={(props, i) => {
-    //         let path = checkItemType(i)
-    //             ? `/allGoods/${wordToPathHelper(i.category.eng)}/${wordToPathHelper(i.subcategory.eng)}?item=${wordToPathHelper(i.name.eng)}`
-    //             : `/kits?item=${wordToPathHelper(i.name.eng)}`;
+    window.innerWidth <= 899 && textFieldRef.current?.focus()
 
-    //         return <li {...props}>
-    //             <Link key={i.name.eng} className={c.searchItem} to={path}>
-    //                 {/* <img className={c.img} alt={t('alts.product')} src={i.img} /> */}
-    //                 <p className={c.name}>{currentLanguageHelper(i.name)}</p>
-    //                 <p className={c.price}>{i.price} ₽</p>
-    //             </Link>
-    //         </li>
-    //     }}
-    // />
-    return <>
-        <Autocomplete className={`${c.searchContainer} ${className}`} options={items} disablePortal filterOptions={filterOptions}
+    return <Autocomplete value={null} className={`${c.searchContainer} ${className}`} options={items} disablePortal filterOptions={filterOptions}
         getOptionLabel={option => option.name ? currentLanguageHelper(option.name) : ''}
         renderInput={
-            (params) =>
-                <TextField {...params} autoComplete='off' placeholder={t('header.computerHeader.search')} />
+            (params) => <TextField ref={textFieldRef} onBlur={window.innerWidth <= 899 ? hideSearch : undefined} {...params} autoComplete='off' className={c.textField} placeholder={t('header.computerHeader.search')} />
         }
         renderOption={(props, i) => {
             let path = checkItemType(i)
                 ? `/allGoods/${wordToPathHelper(i.category.eng)}/${wordToPathHelper(i.subcategory.eng)}?item=${wordToPathHelper(i.name.eng)}`
                 : `/kits?item=${wordToPathHelper(i.name.eng)}`;
 
-            return <li {...props}>
+            return <li onClick={window.innerWidth <= 899 ? hideSearch : undefined} {...props}>
                 <Link key={i.name.eng} className={c.searchItem} to={path}>
-                    {/* <img className={c.img} alt={t('alts.product')} src={i.img} /> */}
+                    <img className={c.img} alt={t('alts.product')} src={i.img} />
                     <p className={c.name}>{currentLanguageHelper(i.name)}</p>
                     <p className={c.price}>{i.price} ₽</p>
                 </Link>
             </li>
         }}
     />
-        <Autocomplete className={`${c.searchContainer} ${className}`} options={items} disablePortal filterOptions={filterOptions}
-        getOptionLabel={option => option.name ? currentLanguageHelper(option.name) : ''}
-        renderInput={
-            (params) =>
-                <TextField {...params} autoComplete='off' className={c.search} placeholder={t('header.computerHeader.search')} />
-        }
-        renderOption={(props, i) => {
-            let path = checkItemType(i)
-                ? `/allGoods/${wordToPathHelper(i.category.eng)}/${wordToPathHelper(i.subcategory.eng)}?item=${wordToPathHelper(i.name.eng)}`
-                : `/kits?item=${wordToPathHelper(i.name.eng)}`;
-
-            return <li {...props}>
-                <Link key={i.name.eng} className={c.searchItem} to={path}>
-                    {/* <img className={c.img} alt={t('alts.product')} src={i.img} /> */}
-                    <p className={c.name}>{currentLanguageHelper(i.name)}</p>
-                    <p className={c.price}>{i.price} ₽</p>
-                </Link>
-            </li>
-        }}
-    />
-    </>
 };

@@ -1,20 +1,5 @@
 @import "./../../../app.module.scss";
 
-@mixin upperlineHover {
-    &:hover {
-        &::before {
-            content: ' ';
-            display: block;
-            position: absolute;
-            background-color: $mainBlackColor;
-            width: 100%;
-            height: 8px;
-            top: -8px;
-            left: 0;
-        }
-    }
-}
-
 .allGoodsHeader {
     & > img {
         @media screen and (max-width: 1200px) {
@@ -39,16 +24,11 @@
     margin-top: 40px;
     .categoriesContainer {
         display: flex;
-        border-top: 8px solid #F2F1F8;
         flex-wrap: wrap;
         & > li, & > ul {
             padding: 2.4vw 15px 0!important;
         }
-        & > li {
-            @include upperlineHover;
-        }
         & > ul { // category
-            @include upperlineHover;
             display: block;
             &::before {
                 content: none;
@@ -58,10 +38,13 @@
             }
             & > ul { // subcategory
                 top: 100%!important;
-                width: 150px!important;
+                width: 160px!important;
                 transform: translateX(-25%)!important;
+                &::before {
+                    content: none;
+                }
                 & > li a {
-                    color: $mainBlackColor!important;
+                    color: white;
                 }
             }  
         }

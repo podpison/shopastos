@@ -28,6 +28,9 @@
             .media {
                 @include adaptiveValue('height', 380, 250);
                 background-color: #F1F1F8;
+                @media screen and (max-width: 899px) {
+                    height: 230px;
+                }
             }
             .content {
                 .name {
@@ -71,6 +74,16 @@
         padding: 30px;
         font-family: 'gilroy';
         box-sizing: border-box;
+        @media screen and (max-height: 700px) and (min-width: 1201px) {
+            transform: none;
+            inset: 0;
+            margin: auto;
+            position: relative;
+            transform: scaleY(0.9);
+        }
+        @media screen and (max-height: 670px) and (min-width: 1201px) {
+            transform: scaleY(0.8);
+        }
         @media screen and (max-width: 1200px) {
             width: 96%;
             height: 615px;
@@ -99,6 +112,9 @@
             @media screen and (max-width: 899px) {
                 margin: -35px 0 0 0;
                 filter: invert(100%);
+            }
+            @media screen and (max-width: 500px) {
+                margin-top: -28px;
             }
         }
         & > div > ul { //dots container

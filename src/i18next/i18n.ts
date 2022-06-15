@@ -21,7 +21,6 @@ i18n
 .init({
     lng: currentLng,
     fallbackLng: 'rus',
-    debug: true,
     resources
 });
 

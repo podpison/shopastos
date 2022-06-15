@@ -10,13 +10,23 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { Button } from "./../button/Button";
 import { GoodWithDiscount } from "../goodWithDiscunt/GoodWithDiscount";
+import { useState, useEffect } from "react";
 
 type Props = {
     setBurgerStatus: (status: boolean) => void
 }
 
+
 export const ComputerHeader: React.FC<Props> = ({ setBurgerStatus }) => {    
     const { t } = useTranslation();
+    const [isSearchShown, setIsSearchShown] = useState(true)
+    const setClassNamesWithIsSearchShown = (defaultClassName: string, disabledClassName: string, disableSearchOption = false) => {
+        let secondClassName = disableSearchOption ? isSearchShown && window.innerWidth <= 899 ? disabledClassName : '' : isSearchShown ? '' : disabledClassName
+        return `${defaultClassName} ${secondClassName}`
+    }
+    useEffect(() => {
+        window.innerWidth <= 899 && setIsSearchShown(false)
+    }, [])
 
     return <Toolbar>
         <div className={c.computerMainContainer}>
@@ -24,12 +34,12 @@ export const ComputerHeader: React.FC<Props> = ({ setBurgerStatus }) => {
                 <Link to='/' className={c.logoContainer}>
                     <img alt={t('alts.logo')} src={logo} />
                 </Link>
-                <Search className={c.search} />
+                <Search isSearchShown={isSearchShown} hideSearch={() => setIsSearchShown(false)} className={setClassNamesWithIsSearchShown(c.search, c.search__disabled)} />
                 <Hidden mdUp>
-                    <SearchIcon className={c.mobileSearch} />
+                    <SearchIcon onClick={() => setIsSearchShown(true)} className={setClassNamesWithIsSearchShown(c.mobileSearch, c.mobileSearch__disabled, true)} />
                     <BurgerIcon onClick={() => setBurgerStatus(true)} className={c.burger} />
                 </Hidden>
-                <Button className={c.phoneContainer}><a className={c.phone} href='tel:+380 630 130 103'>+380 630 130 103</a></Button>
+                <Button className={setClassNamesWithIsSearchShown(c.phoneContainer, c.phoneContainer__disabled, true)}><a className={c.phone} href='tel:+380 630 130 103'>+380 630 130 103</a></Button>
                 <Hidden mdDown>
                     <LanguageAndBasket />
                 </Hidden>
