@@ -55,7 +55,7 @@
     }
 }
 .withPopUpContainer {
-    overflow-y: auto;
+    // overflow-y: auto;
     .withPopUp {
         display: grid;
         grid-template-columns: minmax(0, 3fr) minmax(0, 4fr);
@@ -74,11 +74,12 @@
         @media screen and (max-width: 1200px) {
             width: 96%;
             height: 615px;
-            position: static;
+            position: relative;
             transform: none;
             gap: 30px;
             padding: 20px;
-            margin: 30px auto;
+            margin: 40px auto;
+            inset: 0;
         }
         @media screen and (max-width: 899px) {
             width: 92%;
@@ -93,20 +94,11 @@
             position: absolute;
             right: 0;
             top: 0;
-            margin: 1.5% 1.5% 0 0;
+            margin: 16px 16px 0 0;
             cursor: pointer;
             @media screen and (max-width: 899px) {
-                margin: 0;
+                margin: -35px 0 0 0;
                 filter: invert(100%);
-                margin: 0;
-                right: -1vw;
-                top: -5vw;
-            }
-            @media screen and (max-width: 500px) {
-                top: -6vw;
-            }
-            @media screen and (max-width: 440px) {
-                top: -7vw;
             }
         }
         & > div > ul { //dots container

@@ -50,10 +50,6 @@ export const AllGoodsCategories: React.FC<Props> = ({categoriesContainer, onClic
 
     return <ul onClick={onClick} className={`${c.categoriesContainer} ${categoriesContainer}`}>
         <li><NavLink to='/allGoods'>{t('allGoods.categories.allGoods')}</NavLink></li>
-        <ul className={c.itemsContainer}>
-            <ul>
-                {Items}
-            </ul>
-        </ul>
+        {Items}
     </ul>
 };

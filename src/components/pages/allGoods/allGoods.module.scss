@@ -40,33 +40,30 @@
     .categoriesContainer {
         display: flex;
         border-top: 8px solid #F2F1F8;
-        & > li, & > ul > ul > ul {
+        flex-wrap: wrap;
+        & > li, & > ul {
             padding: 2.4vw 15px 0!important;
         }
         & > li {
             @include upperlineHover;
         }
-        & > ul > ul { // categories
-            display: flex!important;
-            padding-bottom: 0;
-            background-color: initial;
-            position: static;
-            top: 0;
-            overflow: scroll clip;
+        & > ul { // category
+            @include upperlineHover;
+            display: block;
             &::before {
                 content: none;
             }
-            & > ul { // category
-                @include upperlineHover;
-                & > ul { // subcategory
-                    top: 100%!important;
-                    width: 150px!important;
-                    transform: translateX(-25%)!important;
-                }
+            a {
+                color: $mainBlackColor;
+            }
+            & > ul { // subcategory
+                top: 100%!important;
+                width: 150px!important;
+                transform: translateX(-25%)!important;
                 & > li a {
                     color: $mainBlackColor!important;
                 }
-            }
+            }  
         }
     }
 }

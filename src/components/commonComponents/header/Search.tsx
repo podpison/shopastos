@@ -64,72 +64,45 @@ export const Search: React.FC<Props> = ({ className }) => {
     //     }}
     // />
     return <>
-        <Autocomplete className={`${c.searchContainer} ${className}`} options={items} filterOptions={filterOptions}
-            renderOption={(props, i) => {
-                let path = checkItemType(i)
-                    ? `/allGoods/${wordToPathHelper(i.category.eng)}/${wordToPathHelper(i.subcategory.eng)}?item=${wordToPathHelper(i.name.eng)}`
-                    : `/kits?item=${wordToPathHelper(i.name.eng)}`;
-
-                return <li {...props}>
-                    <Link key={i.name.eng} className={c.searchItem} to={path}>
-                        {/* <img className={c.img} alt={t('alts.product')} src={i.img} /> */}
-                        <p className={c.name}>{currentLanguageHelper(i.name)}</p>
-                        <p className={c.price}>{i.price} ₽</p>
-                    </Link>
-                </li>
-            }}
-            getOptionLabel={option => option.name ? currentLanguageHelper(option.name) : ''}
-            renderInput={(params) => <TextField {...params} autoComplete='off' placeholder={t('header.computerHeader.search')} />} />
-        <Autocomplete options={items} filterOptions={filterOptions}
-            renderOption={(props, i) => {
-                let path = checkItemType(i)
-                    ? `/allGoods/${wordToPathHelper(i.category.eng)}/${wordToPathHelper(i.subcategory.eng)}?item=${wordToPathHelper(i.name.eng)}`
-                    : `/kits?item=${wordToPathHelper(i.name.eng)}`;
-
-                return <li {...props}>
-                    <Link key={i.name.eng} className={c.searchItem} to={path}>
-                        {/* <img className={c.img} alt={t('alts.product')} src={i.img} /> */}
-                        <p className={c.name}>{currentLanguageHelper(i.name)}</p>
-                        <p className={c.price}>{i.price} ₽</p>
-                    </Link>
-                </li>
-            }}
-            getOptionLabel={option => option.name ? currentLanguageHelper(option.name) : ''}
-            renderInput={
-                (params) =>
-                    <TextField {...params} autoComplete='off' InputProps={{
-                        startAdornment: (
-                            <InputAdornment position="start">
-                                <SearchIcon />
-                            </InputAdornment>
-                        )
-                    }} className={c.search} placeholder={t('header.computerHeader.search')} />
-            } />
         <Autocomplete className={`${c.searchContainer} ${className}`} options={items} disablePortal filterOptions={filterOptions}
-            getOptionLabel={option => option.name ? currentLanguageHelper(option.name) : ''}
-            renderInput={
-                (params) =>
-                    <TextField {...params} autoComplete='off' InputProps={{
-                        startAdornment: (
-                            <InputAdornment position="start">
-                                <SearchIcon />
-                            </InputAdornment>
-                        )
-                    }} className={c.search} placeholder={t('header.computerHeader.search')} />
-            }
-            renderOption={(props, i) => {
-                let path = checkItemType(i)
-                    ? `/allGoods/${wordToPathHelper(i.category.eng)}/${wordToPathHelper(i.subcategory.eng)}?item=${wordToPathHelper(i.name.eng)}`
-                    : `/kits?item=${wordToPathHelper(i.name.eng)}`;
+        getOptionLabel={option => option.name ? currentLanguageHelper(option.name) : ''}
+        renderInput={
+            (params) =>
+                <TextField {...params} autoComplete='off' placeholder={t('header.computerHeader.search')} />
+        }
+        renderOption={(props, i) => {
+            let path = checkItemType(i)
+                ? `/allGoods/${wordToPathHelper(i.category.eng)}/${wordToPathHelper(i.subcategory.eng)}?item=${wordToPathHelper(i.name.eng)}`
+                : `/kits?item=${wordToPathHelper(i.name.eng)}`;
 
-                return <li {...props}>
-                    <Link key={i.name.eng} className={c.searchItem} to={path}>
-                        {/* <img className={c.img} alt={t('alts.product')} src={i.img} /> */}
-                        <p className={c.name}>{currentLanguageHelper(i.name)}</p>
-                        <p className={c.price}>{i.price} ₽</p>
-                    </Link>
-                </li>
-            }}
-        />
+            return <li {...props}>
+                <Link key={i.name.eng} className={c.searchItem} to={path}>
+                    {/* <img className={c.img} alt={t('alts.product')} src={i.img} /> */}
+                    <p className={c.name}>{currentLanguageHelper(i.name)}</p>
+                    <p className={c.price}>{i.price} ₽</p>
+                </Link>
+            </li>
+        }}
+    />
+        <Autocomplete className={`${c.searchContainer} ${className}`} options={items} disablePortal filterOptions={filterOptions}
+        getOptionLabel={option => option.name ? currentLanguageHelper(option.name) : ''}
+        renderInput={
+            (params) =>
+                <TextField {...params} autoComplete='off' className={c.search} placeholder={t('header.computerHeader.search')} />
+        }
+        renderOption={(props, i) => {
+            let path = checkItemType(i)
+                ? `/allGoods/${wordToPathHelper(i.category.eng)}/${wordToPathHelper(i.subcategory.eng)}?item=${wordToPathHelper(i.name.eng)}`
+                : `/kits?item=${wordToPathHelper(i.name.eng)}`;
+
+            return <li {...props}>
+                <Link key={i.name.eng} className={c.searchItem} to={path}>
+                    {/* <img className={c.img} alt={t('alts.product')} src={i.img} /> */}
+                    <p className={c.name}>{currentLanguageHelper(i.name)}</p>
+                    <p className={c.price}>{i.price} ₽</p>
+                </Link>
+            </li>
+        }}
+    />
     </>
 };

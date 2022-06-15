@@ -55,7 +55,7 @@ export const PopUp: React.FC<Props> = ({ open, price, name, popUpData, categoryA
     };
     let Sizes = sizes.map((s, index) => <li onClick={() => setCurrentSize(s)} className={currentSize === s ? `${c.size} ${c.activeSize}` : c.size} key={index}>{s}</li>);
 
-    return <Modal className={c.withPopUpContainer} onClose={closeModal} open={open}>
+    return <Modal sx={{overflowY: 'scroll'}} disableScrollLock={false} className={c.withPopUpContainer} onClose={closeModal} open={open}>
         <div className={c.withPopUp}>
             <img onClick={closeModal} className={c.closeIcon} alt={t('alts.close')} src={closeImg} />
             <Carousel className={c.carousel} customPaging={customPaging} dots infinite={false} >
