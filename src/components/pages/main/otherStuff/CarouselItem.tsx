@@ -1,13 +1,19 @@
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { wordToPathHelper } from "../../../../helpers/wordToPathHelper";
-import { IAllGoodsItem } from "../../../../redux/staticReducer";
+import { pathToGoodHelper } from "../../../../helpers/pathToGoodHelder";
+import { IAllGoodsItem, IItem } from "../../../../redux/staticReducer";
 import c from "./../mainPage.module.scss";
 
-export const CarouselItem: React.FC<IAllGoodsItem> = ({img, name, category, subcategory}) => {
-    const { t } = useTranslation();
+type Props = {
+    item: IAllGoodsItem | IItem
+}
 
-    return <Link className={c.item} to={`/allGoods/${wordToPathHelper(category.eng)}/${wordToPathHelper(subcategory.eng)}?item=${wordToPathHelper(name.eng)}`}>
+export const CarouselItem: React.FC<Props> = (props) => {
+    const { t } = useTranslation();
+    let { img } = props.item
+    let path = pathToGoodHelper(props.item);
+
+    return <Link className={c.item} to={path}>
         <img className={c.img} alt={t('alts.stuff')} src={img} />
     </Link>
 };

@@ -16,6 +16,8 @@ export interface IItem {
     img: string
     name: RusEngTextType
     price: number
+    priority?: 0 | 1 | 2 | 3 
+    discount?: string
     popUpData: IItemPopUp
 };
 
@@ -57,8 +59,6 @@ export interface IWhatWeCanCreate extends IWhatWeCanDo {
 export interface IAllGoodsItem extends IItem {
     category: RusEngTextType
     subcategory: RusEngTextType
-    priority?: 0 | 1 | 2 | 3 
-    discount?: string
 };
 
 const initialState = {

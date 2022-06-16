@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { getAllGoodsItemsSelector } from "../../../redux/selectors";
-import { wordToPathHelper } from "../../../helpers/wordToPathHelper";
 import c from "./goodWithDiscount.module.scss";
 import { currentLanguageHelper } from "../../../helpers/currentLanguageHelper";
 import { useTranslation } from "react-i18next";
+import { useAllGoods } from "../../../hooks/useAllGoods";
+import { pathToGoodHelper } from "../../../helpers/pathToGoodHelder";
 
 type Props = {
     className: string
@@ -13,9 +12,10 @@ type Props = {
 export const GoodWithDiscount: React.FC<Props> = ({className}) => {
     const { t } = useTranslation();
 
-    let goodWithDiscount = useSelector(getAllGoodsItemsSelector).find(g => g.priority === 3);
+    let goodWithDiscount = useAllGoods().find(g => g.priority === 3);
+    let path = pathToGoodHelper(goodWithDiscount)
 
-    return <Link to={`/allGoods/${wordToPathHelper(goodWithDiscount?.category.eng)}/${wordToPathHelper(goodWithDiscount?.subcategory.eng)}?item=${wordToPathHelper(goodWithDiscount?.name.eng)}`} className={`${c.goodWithDiscountContainer} ${className}`}>
+    return <Link to={path} className={`${c.goodWithDiscountContainer} ${className}`}>
         <p className={c.goodWithDiscount}>{currentLanguageHelper(goodWithDiscount?.name)} {t('goodWithDiscount.withDiscount')} - {goodWithDiscount?.discount} %</p>
         <img className={c.img} alt={t('alts.goodWithDiscount')} src={goodWithDiscount?.img} />
     </Link>

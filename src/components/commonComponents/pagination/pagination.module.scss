@@ -36,7 +36,10 @@
                 }
             }
             &:not(:first-child):not(:last-child):not(:nth-child(2)) {
-                margin-left: max(1vw, 7px);
+                margin-left: 19px;
+                @media screen and (max-width: 1920px) {
+                    margin-left: max(1vw, 7px);
+                }
             }
             &:first-child button, &:last-child button {
                 @include buttonSize;
@@ -47,10 +50,16 @@
                 }
             }
             &:first-child {
-                margin-right: max(2vw, 18px);
+                margin-right: 38px;
+                @media screen and (max-width: 1920px) {
+                    margin-right: max(2vw, 18px);
+                }
             }
             &:last-child {
-                margin-left: max(2vw, 18px);
+                margin-left: 38px;
+                @media screen and (max-width: 1900px) {
+                    margin-left: max(2vw, 18px);
+                }
             }
         }
     }

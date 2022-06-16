@@ -1,16 +1,15 @@
 import ReactSlickCarousel from "react-slick";
 import ArrowBackIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForwardIos";
-import { useSelector } from "react-redux";
 import { useState, useRef } from "react";
-import { getAllGoodsItemsSelector } from "../../../../redux/selectors";
 import { CarouselItem } from "./CarouselItem";
 import c from "./../mainPage.module.scss";
 import { Button } from "@mui/material";
+import { useAllGoods } from "../../../../hooks/useAllGoods";
 
 export const Carousel: React.FC = () => {
-    // let Items = useSelector(getAllGoodsItemsSelector).filter(i => i.priority === undefined).map((i, index) => <CarouselItem {...i} key={index} />);
-    let Items = useSelector(getAllGoodsItemsSelector).map((i, index) => <CarouselItem {...i} key={index} />);
+    let items = useAllGoods();
+    let Items = items.map((i, index) => <CarouselItem item={i} key={index} />);
     const [currentSlide, setCurrentSlide] = useState(1);
 
     let slidesCount = Items ? Math.ceil(Items.length / 4) : 0;
@@ -26,7 +25,7 @@ export const Carousel: React.FC = () => {
 
     const carouselRef = useRef<any>(null);
     return <div className={c.sliderContainer}>
-        <ReactSlickCarousel arrows={false} ref={carouselRef} className={c.slider} slidesToShow={4} slidesToScroll={4} infinite={false}>
+        <ReactSlickCarousel swipe={false} arrows={false} ref={carouselRef} className={c.slider} slidesToShow={4} slidesToScroll={4} infinite={false}>
             {Items}
         </ReactSlickCarousel>
         <div className={c.slideCounterContainer}>

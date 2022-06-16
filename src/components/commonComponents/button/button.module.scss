@@ -1,5 +1,15 @@
 @import "./../../../app.module.scss";
 
+@mixin greenBackgroundColor {
+    background-color: #1FAB8A;
+    &:hover {
+        background-color: #309F85;
+    }
+    &:active {
+        background: linear-gradient(0, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #309F85;
+    }
+}
+
 @mixin button($backgroundColor: true, $staticSize: true) {
     @include adaptiveValue('font-size', 16, 14);
     font-weight: 500;
@@ -13,7 +23,7 @@
         color: #EEF1F6;
     }
     @if ($backgroundColor) {
-        background-color: #1FAB8A;
+        @include greenBackgroundColor;
     }
     @if ($staticSize) {
         width: 280px;
@@ -32,9 +42,15 @@
         font-weight: 600;
     }
     &.green {
-        background-color: #1FAB8A;
+        @include greenBackgroundColor;
     }
     &.blue {
         background-color: #3C336C;
+        &:hover {
+            background-color: #322a5a;
+        }
+        &:active {
+            background: linear-gradient(0, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #3C336C;
+        }
     }
 }

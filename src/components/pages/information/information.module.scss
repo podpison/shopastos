@@ -68,7 +68,7 @@
 
 .informationContainer {
     @include container;
-    margin-top: 2%;
+    @include defaultMargin;
     @media screen and (max-width: 899px) {
         margin-top: 40px;
     }
@@ -85,12 +85,15 @@
         }
     }
     .FAQ {
-        margin-top: 6%;
         display: grid;
         grid-template-columns: 10fr 6fr;
         gap: 6%;
         align-items: center;
         position: relative;
+        margin-top: 97.8px;
+        @media screen and (max-width: 1920px) {
+            margin-top: 6%;
+        }
         @media screen and (max-width: 1200px) {
             grid-template-columns: 1fr;
         }
@@ -124,8 +127,11 @@
     display: grid;
     grid-template-columns: 1fr 2fr;
     justify-content: space-between;
-    margin-top: 6.1%;
     width: 88%;
+    margin-top: 99.4px;
+    @media screen and (max-width: 1920px) {
+        margin-top: 6.1%;
+    }
     @media screen and (max-width: 1200px) {
         grid-template-columns: 1fr 1fr;
         width: 100%;
@@ -154,7 +160,10 @@
             }
         }
         .contacts {
-            margin-top: 2.75vw;
+            margin-top: 37px;
+            @media screen and (max-width: 1920px) {
+                margin-top: 1.93vw;
+            }
             @media screen and (max-width: 1200px) {
                 margin-top: 40px;
             }
@@ -179,7 +188,10 @@
             }
         }
         .userCredentialsForm {
-            margin-top: 2.5vw;
+            margin-top: 28.6px;
+            @media screen and (max-width: 1920px) {
+                margin-top: 1.5vw;
+            }
         }
     }
 }

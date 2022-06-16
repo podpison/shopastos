@@ -1,22 +1,20 @@
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { RusEngTextType } from "../../../../redux/store";
 import c from "./../mainPage.module.scss";
-import { wordToPathHelper } from "./../../../../helpers/wordToPathHelper";
 import { currentLanguageHelper } from "./../../../../helpers/currentLanguageHelper";
+import { IAllGoodsItem, IItem } from "../../../../redux/staticReducer";
+import { pathToGoodHelper } from "../../../../helpers/pathToGoodHelder";
 
 type Props = {
-    name: RusEngTextType
-    subcategory: RusEngTextType
-    category: RusEngTextType
-    img: string
-    priority: 0 | 1 | 2 | 3 | undefined //it won't get undefined. I put it here to compile files
+    item: IAllGoodsItem | IItem
 }
 
-export const Item: React.FC<Props> = ({ name, subcategory, category, img, priority}) => {
+export const Item: React.FC<Props> = (props) => {
     const { t } = useTranslation();
+    let { priority, img, name } = props.item;
+    let path = pathToGoodHelper(props.item);
 
-    return <Link className={c['good' + priority]} to={`/allGoods/${wordToPathHelper(category.eng)}/${wordToPathHelper(subcategory.eng)}?item=${wordToPathHelper(name.eng)}`}>
+    return <Link className={c['good' + priority]} to={path}>
         <img alt={t('alts.good')} src={img} />
         <p className={c.name}>{currentLanguageHelper(name)}</p>
     </Link>

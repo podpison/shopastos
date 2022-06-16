@@ -4,11 +4,12 @@
     .phoneAndEmailContainer {
         display: flex;
         flex-direction: column;
-        @include sign;
+        & > a {
+            @include sign;
+        }
         .email {
             text-decoration-line: underline;
             text-underline-offset: 3px;
-            margin-top: 5px;
         }
     }
     .socialNetworksContainer {

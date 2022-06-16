@@ -14,7 +14,10 @@
     grid-template-columns: 2fr 1fr;
     align-items: center;
     margin-bottom: -4px;
-    margin-top: max(30px, 2.5%);
+    margin-top: 50px;
+    @media screen and (max-width: 1920px) {
+        margin-top: max(30px, 2.5%);
+    }
     &.alternativeContainer {
         @include gridMobile1column;
         grid-template-columns: 1fr 1fr;

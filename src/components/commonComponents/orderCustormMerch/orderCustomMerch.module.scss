@@ -7,11 +7,11 @@
 }
 
 .orderCustomMerch {
+    @include defaultMargin;
     background-image: url(./../../../static/img/commonComponents/orderCustomMerchBackground.png);
     background-size: 100% calc(100% + 55px);
     background-repeat: no-repeat;
     overflow: hidden;
-    margin-top: 3%;
     padding-bottom: 65px;
     @media screen and (max-width: 1200px) {
         background-size: 165% 111%;

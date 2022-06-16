@@ -26,7 +26,10 @@
         display: flex;
         flex-wrap: wrap;
         & > li, & > ul {
-            padding: 2.4vw 15px 0!important;
+            padding: 27.6px 15px 0 !important;
+            @media screen and (max-width: 1920px) {
+                padding: 2.4vw 15px 0!important;
+            }
         }
         & > ul { // category
             display: block;

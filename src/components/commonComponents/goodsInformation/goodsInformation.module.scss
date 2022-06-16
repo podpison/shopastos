@@ -3,9 +3,9 @@
 .informationContainer {
     @include container;
     @include adaptiveValue('gap', 130, 30);
+    @include defaultMargin;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    margin-top: 4%;
     @media screen and (max-width: 1400px) {
         grid-template-columns: repeat(2, 1fr);
     }

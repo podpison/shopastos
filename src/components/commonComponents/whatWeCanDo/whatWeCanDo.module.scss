@@ -3,7 +3,7 @@
 
 .whatWeCanSewContainer {
     @include container;
-    margin-top: 2%;
+    @include defaultMargin(false);
     @media screen and (max-width: 899px) {
         margin-top: 40px;
     }
@@ -18,9 +18,9 @@
     }
     .itemsContainer {
         @include adaptiveValue('gap', 30, 6);
+        @include defaultMargin(false);
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        margin-top: 2%;
         @media screen and (max-width: 1400px) {
             grid-template-columns: repeat(3, 1fr);
         }

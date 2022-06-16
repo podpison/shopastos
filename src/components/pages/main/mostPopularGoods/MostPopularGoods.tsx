@@ -1,12 +1,12 @@
-import { useSelector } from "react-redux";
-import { getAllGoodsItemsSelector } from "../../../../redux/selectors";
 import { Item } from "./Item";
 import c from "./../mainPage.module.scss";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useAllGoods } from "../../../../hooks/useAllGoods";
 
 export const MostPopularGoods: React.FC = () => {
-    let Items = useSelector(getAllGoodsItemsSelector).filter(i => i.priority !== undefined).map((i, index) => <Item name={i.name} category={i.category} subcategory={i.subcategory} img={i.img} priority={i.priority} key={index} />);
+    let items = useAllGoods(true);
+    let Items = items.map((i, index) => <Item item={i} key={index} />);
     const { t } = useTranslation();
 
     return <div className={c.mostPopularGoods}>

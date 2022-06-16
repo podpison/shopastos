@@ -114,6 +114,19 @@ $grayColor: #454747;
     transform: scale(0.97);
   }
 }
+@mixin defaultMargin($defaultVerson: true) {
+  @if ($defaultVerson) {
+    margin-top: 57px;
+    @media screen and (max-width: 1920px) {
+      margin-top: 3%;
+    }
+  } @else {
+    margin-top: 37px;
+    @media screen and (max-width: 1920px) {
+      margin-top: 2%;
+    }
+  }
+}
 
 html {
   overflow-x: hidden;
