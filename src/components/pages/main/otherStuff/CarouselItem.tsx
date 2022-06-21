@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { pathToGoodHelper } from "../../../../helpers/pathToGoodHelder";
-import { IAllGoodsItem, IItem } from "../../../../redux/staticReducer";
+import { IAllGoodsItem, IItem } from "../../../../redux/reducers/staticReducer";
 import c from "./../mainPage.module.scss";
 
 type Props = {

@@ -1,6 +1,6 @@
 import { Dispatch } from "redux";
-import { customerAPI } from "../api/api";
-import { ActionsType, RusEngTextType } from "./store";
+import { customerAPI } from "../../api/api";
+import { ActionsType, RusEngTextType } from "../store";
 
 export type BasketItemType = {
     img: string

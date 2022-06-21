@@ -1,14 +1,16 @@
 import { applyMiddleware, combineReducers, createStore } from "redux";
 import thunkMiddleware from "redux-thunk";
-import { staticReducer } from "./staticReducer";
-import { customerReducer } from "./customerReducer";
-import { breadcrumbsReducer } from "./breadcrumbsReducer";
+import { staticReducer } from "./reducers/staticReducer";
+import { customerReducer } from "./reducers/customerReducer";
+import { breadcrumbsReducer } from "./reducers/breadcrumbsReducer";
 import { composeWithDevTools } from "@redux-devtools/extension";
+import { alertReducer } from "./reducers/alertReducer";
 
 const reducers = combineReducers({
     static: staticReducer,
     customer: customerReducer,
-    breadcrumbs: breadcrumbsReducer
+    breadcrumbs: breadcrumbsReducer,
+    alert: alertReducer,
 });
 
 type Reducers = typeof reducers;

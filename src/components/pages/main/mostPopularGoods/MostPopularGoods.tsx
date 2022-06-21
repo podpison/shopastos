@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { useAllGoods } from "../../../../hooks/useAllGoods";
 
 export const MostPopularGoods: React.FC = () => {
-    let items = useAllGoods(true);
+    let items = useAllGoods();
     let Items = items.map((i, index) => <Item item={i} key={index} />);
     const { t } = useTranslation();
 

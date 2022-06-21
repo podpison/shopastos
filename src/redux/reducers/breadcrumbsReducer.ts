@@ -1,4 +1,4 @@
-import { ActionsType, RusEngTextType } from "./store";
+import { ActionsType, RusEngTextType } from "../store";
 
 const initialState = {
     items: [] as RusEngTextType[]

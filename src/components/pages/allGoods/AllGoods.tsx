@@ -25,10 +25,10 @@ export const AllGoods: React.FC = () => {
     };
 
     return <>
-        <div className={c.allGoods}>
-            <AllGoodsCategories categoriesContainer={c.categoriesContainer} />
+        <section className={c.allGoods}>
+            <AllGoodsCategories container={false} categoriesContainer={c.categoriesContainer} />
             <Cards paginationName="allGoods" items={filtredItems} portion={1} />
-        </div>
+        </section>
         <OrderCustomMerch />
     </>
 };

@@ -7,6 +7,10 @@
                 "advantage1": "High quality ONLY",
                 "advantage2": "Manager support 24/7",
                 "advantage3": "Fulfillment of an order in Turbo-mode"
+            },
+            "alert": {
+                "success": "The operation completed successfully",
+                "error": "Something went wrong..."
             }
         },
         "mostPopularGoods": {

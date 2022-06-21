@@ -26,10 +26,8 @@
         display: flex;
         flex-wrap: wrap;
         & > li, & > ul {
-            padding: 27.6px 15px 0 !important;
-            @media screen and (max-width: 1920px) {
-                padding: 2.4vw 15px 0!important;
-            }
+            margin: 0 15px 0;
+            padding: 0;
         }
         & > ul { // category
             display: block;
@@ -41,8 +39,12 @@
             }
             & > ul { // subcategory
                 top: 100%!important;
-                width: 160px!important;
+                width: max-content!important;
                 transform: translateX(-25%)!important;
+                @media screen and (max-width: 768px) {
+                    width: 120px!important;
+                    transform: none!important;
+                }
                 &::before {
                     content: none;
                 }

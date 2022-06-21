@@ -11,6 +11,7 @@ import { useTranslation } from "react-i18next";
 type Props = {
     categoriesContainer: string
     onClick?: () => void
+    container?: boolean
 }
 
 type CategoriesType = {
@@ -18,7 +19,7 @@ type CategoriesType = {
     subcategories: RusEngTextType[]
 }[]
 
-export const AllGoodsCategories: React.FC<Props> = ({categoriesContainer, onClick}) => {
+export const AllGoodsCategories: React.FC<Props> = ({ categoriesContainer, onClick, container = true }) => {
     let itemsData = useSelector(getAllGoodsItemsSelector);
     const { t } = useTranslation();
     let categories = [] as CategoriesType;
@@ -50,6 +51,10 @@ export const AllGoodsCategories: React.FC<Props> = ({categoriesContainer, onClic
 
     return <ul onClick={onClick} className={`${c.categoriesContainer} ${categoriesContainer}`}>
         <li><NavLink to='/allGoods'>{t('allGoods.categories.allGoods')}</NavLink></li>
-        {Items}
+        {container
+            ? <div className={c.categories}>
+                {Items}
+            </div>
+            : Items}
     </ul>
 };

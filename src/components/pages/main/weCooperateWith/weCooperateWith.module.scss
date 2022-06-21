@@ -2,7 +2,7 @@
 
 .weCooperateWithContainer {
     @include container;
-    margin-top: 3%;
+    @include defaultMargin;
     @media screen and (max-width: 899px) {
         margin-top: 40px;
     }

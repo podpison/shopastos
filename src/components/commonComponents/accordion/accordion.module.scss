@@ -17,6 +17,7 @@
     color: #272525;
     & > div:nth-child(1) > div:nth-child(1) { //.MuiAccordionSummary-content
         margin-bottom: 0;
+        padding-right: 10px;
     }
     &::before {
         display: none;

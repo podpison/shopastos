@@ -12,3 +12,9 @@ export const getBasketItemsSelector = (state: StateType) => state.customer.baske
 
 //BREADCRUMBS REDUCER SELECTORS
 export const getBreadcrumbsItemSelector = (state: StateType) => state.breadcrumbs.items;
+
+//ALERT REDUCER SELECTORS
+export const getAlertDataSelector = (state: StateType) => {
+  let { alertType, isOpen } = state.alert;
+  return { alertType, isOpen }
+}

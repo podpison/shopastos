@@ -1,6 +1,6 @@
 import { Card } from "./Card";
 import { useLocation } from "react-router-dom";
-import { IItem, IAllGoodsItem } from "../../../redux/staticReducer";
+import { IItem, IAllGoodsItem } from "../../../redux/reducers/staticReducer";
 import c from "./cards.module.scss";
 import { Pagination, PaginationNameType } from "../pagination/Pagination";
 import { usePortion, UsePortionPortionNameType } from "../../../hooks/usePortion";

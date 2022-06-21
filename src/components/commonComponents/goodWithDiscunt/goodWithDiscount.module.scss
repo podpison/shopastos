@@ -8,6 +8,9 @@
         font-weight: 900;
         text-transform: uppercase;
         color: #3C336C;
+        @media screen and (max-width: 899px) and (min-width: 768px) {
+            width: 140%;
+        }
     }
     .img {
         height: 100px;

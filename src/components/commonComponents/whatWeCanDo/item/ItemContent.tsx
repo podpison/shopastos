@@ -1,12 +1,13 @@
 import { useTranslation } from "react-i18next";
 import { currentLanguageHelper } from "../../../../helpers/currentLanguageHelper";
-import { IWhatWeCanDo } from "../../../../redux/staticReducer";
+import { IWhatWeCanDo } from "../../../../redux/reducers/staticReducer";
+import { RusEngTextType } from "../../../../redux/store";
 import { Accordion } from "../../accordion/Accordion";
 import c from "./../whatWeCanDo.module.scss";
 
-type Props = IWhatWeCanDo['content'];
+type Props = IWhatWeCanDo['content'] & {name: RusEngTextType};
 
-export const ItemContent: React.FC<Props> = ({ howToOrderSign, productExampleImg, material, paintingTypes, productCareDescription }) => {
+export const ItemContent: React.FC<Props> = ({ name, howToOrderSign, productExampleImg, material, paintingTypes, productCareDescription }) => {
     const { t } = useTranslation();
 
     let MaterialItems = currentLanguageHelper<string[]>(material.materials)?.map((i, index) => <li key={index}>{i}</li>);

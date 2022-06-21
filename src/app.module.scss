@@ -27,6 +27,9 @@ $grayColor: #454747;
   @media screen and (max-width: 1100px) {
     max-width: 1050px;
   }
+  @media screen and (max-width: 768px) {
+    padding: 0 10px;
+  }
 }
 
 @mixin customBackground($background) {

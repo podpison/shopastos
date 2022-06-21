@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getDocs, collection, getFirestore, addDoc } from "firebase/firestore";
-import { SetNewManagerClientValueType } from "../redux/customerReducer";
+import { SetNewManagerClientValueType } from "../redux/reducers/customerReducer";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAkclfHKCVGB2fEJgV4Pgu8DHA9k3bnbHI",

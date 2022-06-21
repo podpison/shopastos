@@ -1,7 +1,7 @@
 import { Modal } from "@mui/material";
 import { useSelector } from "react-redux";
 import { getBasketItemsSelector } from "../../../../redux/selectors";
-import { customerReducerActions } from "../../../../redux/customerReducer";
+import { customerReducerActions } from "../../../../redux/reducers/customerReducer";
 import { UserCredentialsForm } from "../../userCredentialsForm/UserCredentialsForm";
 import { BasketItem } from "./BasketItem";
 import closeImg from "./../../../../static/img/commonComponents/close.png";
@@ -31,8 +31,9 @@ export const BasketModal: React.FC = () => {
     }, [search]);
 
     const userCredentialsFormCallback = () => {
-        dispatch(customerReducerActions.deleteBasketItems());
+        closeModal();
         setOrderNumber(createOrderNumber());
+        dispatch(customerReducerActions.deleteBasketItems());
     };
 
     let Items = items.map(i => <BasketItem {...i} key={i.name.eng} />);

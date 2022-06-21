@@ -17,7 +17,7 @@ export const WhatWeCanDo: React.FC<Props> = ({ operationType }) => {
     const { t } = useTranslation();
     let data = useSelector(operationType === 'sew' ? getWhatWeCanSewSelector : getWhatWeCanCreateSelector);
     let Items = data.map((i, index) => <Item key={index} operationType={operationType} name={i.name} img={i.img} />);
-    let ItemDetails = data.map((i, index) => <Route key={index} path={i.name.eng.toLowerCase()} element={<ItemContent {...i.content} />} />);
+    let ItemDetails = data.map((i, index) => <Route key={index} path={i.name.eng.toLowerCase()} element={<ItemContent name={i.name} {...i.content} />} />);
 
     return <div>
         <Routes>

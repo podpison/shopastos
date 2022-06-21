@@ -23,8 +23,13 @@ export const ComputerHeader: React.FC<Props> = ({ setBurgerStatus }) => {
     const setClassNamesWithIsSearchShown = (className: string, smallMobile = false, disableSearchOption = false) => {
         let viewport = smallMobile ? 500 : 899
         let disabledClassName = `${className}__disabled`
-        let secondClassName = disableSearchOption ? isSearchShown && window.innerWidth <= viewport ? disabledClassName : '' : isSearchShown ? '' : disabledClassName
-        return `${className} ${secondClassName}`
+        let secondClassName = ''
+        if (disableSearchOption) {
+            secondClassName = isSearchShown && window.innerWidth <= viewport ? disabledClassName : ''
+        } else {
+            secondClassName = isSearchShown  ? '' : disabledClassName
+        }
+        return `${c[className]} ${c[secondClassName]}`
     }
     useEffect(() => {
         window.innerWidth <= 899 && setIsSearchShown(false)
@@ -33,15 +38,15 @@ export const ComputerHeader: React.FC<Props> = ({ setBurgerStatus }) => {
     return <Toolbar>
         <div className={c.computerMainContainer}>
             <div className={c.headerContainer}>
-                <Link to='/' className={setClassNamesWithIsSearchShown(c.logoContainer, true, true)}>
+                <Link to='/' className={setClassNamesWithIsSearchShown('logoContainer', true, true)}>
                     <img alt={t('alts.logo')} src={logo} />
                 </Link>
-                <Search isSearchShown={isSearchShown} hideSearch={() => setIsSearchShown(false)} className={setClassNamesWithIsSearchShown(c.search)} />
+                <Search isSearchShown={isSearchShown} hideSearch={() => setIsSearchShown(false)} className={setClassNamesWithIsSearchShown('search')} />
                 <Hidden mdUp>
-                    <SearchIcon onClick={() => setIsSearchShown(true)} className={setClassNamesWithIsSearchShown(c.mobileSearch, false, true)} />
+                    <SearchIcon onClick={() => setIsSearchShown(true)} className={setClassNamesWithIsSearchShown('mobileSearch', false, true)} />
                     <BurgerIcon onClick={() => setBurgerStatus(true)} className={c.burger} />
                 </Hidden>
-                <Button className={setClassNamesWithIsSearchShown(c.phoneContainer, false, true)}><a className={c.phone} href='tel:+380 630 130 103'>+380 630 130 103</a></Button>
+                <Button className={setClassNamesWithIsSearchShown('phoneContainer', false, true)}><a className={c.phone} href='tel:+380 630 130 103'>+380 630 130 103</a></Button>
                 <Hidden mdDown>
                     <LanguageAndBasket />
                 </Hidden>

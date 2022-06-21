@@ -3,7 +3,7 @@ import './index.css';
 import App from './App';
 import "./i18next/i18n";
 
-//Now I don't have to add draggable='false' to every img tag
-window.ondragstart = () => false;
+window.ondragstart = () => false; //Now I don't have to add draggable='false' to every img element
+document.addEventListener('touchstart', () => {})
 
 ReactDOM.render(<App />, document.getElementById('root'));

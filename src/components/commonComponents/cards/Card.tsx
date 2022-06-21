@@ -4,7 +4,7 @@ import basketImg from "./../../../static/img/commonComponents/card/basket.png";
 import { Link } from "react-router-dom";
 import { wordToPathHelper } from "../../../helpers/wordToPathHelper";
 import { useState, useEffect } from "react";
-import { IItem, IAllGoodsItem } from "../../../redux/staticReducer";
+import { IItem, IAllGoodsItem } from "../../../redux/reducers/staticReducer";
 import { PopUp } from "./PopUp";
 import { useTranslation } from "react-i18next";
 import { currentLanguageHelper } from "../../../helpers/currentLanguageHelper";
@@ -41,6 +41,6 @@ export const Card: React.FC<Props> = (props) => {
                 <Link className={c.basket} to={linkPath}><img alt={t('alts.basket')} src={basketImg} /></Link>
             </CardActions>
         </MUICard>
-        <PopUp open={isModalOpen} name={name} price={price} popUpData={popUpData} categoryAndSubcategory={categoryAndSubcategory} />
+        {isModalOpen && <PopUp name={name} price={price} popUpData={popUpData} categoryAndSubcategory={categoryAndSubcategory} />}
     </>
 };

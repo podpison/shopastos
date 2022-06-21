@@ -14,16 +14,21 @@ import { ProductionHeader } from "../../pages/production/ProductionHeader";
 import { ProductionItemHeader } from "../../pages/production/ProductionItemHeader";
 import { KitsHeader } from "../../pages/kits/KitsHeader";
 import { InformationHeader } from "../../pages/information/InformationHeader";
+import { Alert } from "./alert/Alert";
+import { useSelector } from "react-redux";
+import { getAlertDataSelector } from "../../../redux/selectors";
 
-const WithBreadcrumbsSewingHeader = withBreadcrumbs(SewingHeader, {rus: 'Пошив', eng: 'Sewing'});
-const WithBreadcrumbsAllGoodsHeader = withBreadcrumbs(AllGoodsHeader, {rus: 'Все товары', eng: 'All goods'});
-const WithBreadcrumbsProductionHeader = withBreadcrumbs(ProductionHeader, {rus: 'Производство', eng: 'Production'});
-const WithBreadcrumbsKitsHeader = withBreadcrumbs(KitsHeader, {rus: 'Наборы', eng: 'Kits'});
-const WithBreadcrumbsInformationHeader = withBreadcrumbs(InformationHeader, {rus: 'Информация', eng: 'Information'});
+const WithBreadcrumbsSewingHeader = withBreadcrumbs(SewingHeader, { rus: 'Пошив', eng: 'Sewing' });
+const WithBreadcrumbsAllGoodsHeader = withBreadcrumbs(AllGoodsHeader, { rus: 'Все товары', eng: 'All goods' });
+const WithBreadcrumbsProductionHeader = withBreadcrumbs(ProductionHeader, { rus: 'Производство', eng: 'Production' });
+const WithBreadcrumbsKitsHeader = withBreadcrumbs(KitsHeader, { rus: 'Наборы', eng: 'Kits' });
+const WithBreadcrumbsInformationHeader = withBreadcrumbs(InformationHeader, { rus: 'Информация', eng: 'Information' });
 
 export const Header: React.FC = () => {
     const [burgerStatus, setBurgerStatus] = useState(false);
-    const { pathname } = useLocation(); 
+    const { pathname } = useLocation();
+    let alertData = useSelector(getAlertDataSelector);
+
     return <>
         <header className={c.header}>
             <div className={`${c.headerContent} ${pathname === '/' && c.mainPageHeaderContent}`}> {/* crutch */}
@@ -31,7 +36,7 @@ export const Header: React.FC = () => {
                     <ComputerHeader setBurgerStatus={setBurgerStatus} />
                     <PhoneNav burgerStatus={burgerStatus} setBurgerStatus={setBurgerStatus} />
                 </AppBar>
-                <Routes> 
+                <Routes>
                     <Route path='/' element={<MainPageHeader />} />
                     <Route path='/kits' element={<WithBreadcrumbsKitsHeader />} />
                     <Route path='/allGoods/*' element={<WithBreadcrumbsAllGoodsHeader />} />
@@ -46,5 +51,6 @@ export const Header: React.FC = () => {
             </div>
         </header>
         <BasketModal />
+        {alertData.isOpen && <Alert />}
     </>
 };

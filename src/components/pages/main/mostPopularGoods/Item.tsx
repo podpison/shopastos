@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import c from "./../mainPage.module.scss";
 import { currentLanguageHelper } from "./../../../../helpers/currentLanguageHelper";
-import { IAllGoodsItem, IItem } from "../../../../redux/staticReducer";
+import { IAllGoodsItem, IItem } from "../../../../redux/reducers/staticReducer";
 import { pathToGoodHelper } from "../../../../helpers/pathToGoodHelder";
 
 type Props = {

@@ -11,12 +11,18 @@ type Props = {
     className?: string
 };
 
-export const Breadcrumbs: React.FC<Props> = ({className}) => {
+export const Breadcrumbs: React.FC<Props> = ({ className }) => {
     let items = useSelector(getBreadcrumbsItemSelector);
     const { t } = useTranslation();
     let engItems = items.map(i => wordToPathHelper(i.eng));
-    let Items = items.map((i, index) => <Link key={index} to={'/' + engItems.slice(0, index + 1).join('/')}>{currentLanguageHelper(i)}</Link>);
-
+    let Items = items.map((i, index) => {
+        let prevItemEng = items[index - 1]?.eng;
+        let path = (prevItemEng === 'All goods' || prevItemEng === 'Kits')
+        ? '?item=' + engItems[index]
+        : '/' + engItems.slice(0, index + 1).join('/');
+        return <Link key={index} to={path}>{currentLanguageHelper(i)}</Link>
+    });
+    
     return <MUIBreadcrumbs area-label='breadcrumb' className={`${c.breadcrumbsContainer} ${className}`}>
         <Link to='/'>{t('breadcrumbs.mainPageLink')}</Link>
         {Items}

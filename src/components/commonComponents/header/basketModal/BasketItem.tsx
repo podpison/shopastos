@@ -2,7 +2,7 @@ import { Button } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";
 import { currentLanguageHelper } from "../../../../helpers/currentLanguageHelper";
-import { BasketItemType, customerReducerActions } from "../../../../redux/customerReducer";
+import { BasketItemType, customerReducerActions } from "../../../../redux/reducers/customerReducer";
 import removeGoodImg from "./../../../../static/img/commonComponents/close.png";
 import c from "./basketModal.module.scss";
 

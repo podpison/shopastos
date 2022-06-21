@@ -16,7 +16,7 @@ export const ProductionItemHeader: React.FC = () => {
     let item = useSelector(getWhatWeCanCreateSelector)?.find(i => pathname.includes(i.name.eng.toLowerCase()));
     let name = {rus: '', eng: ''}, description = {rus: '', eng: ''}, productImg = '';
     if (item !== undefined) {
-        name = item.content.name; description = item.content.description; productImg = item.content.productImg;
+        name = item.name; description = item.content.description; productImg = item.content.productImg;
     }
     useBreadcrumbs(name);
     

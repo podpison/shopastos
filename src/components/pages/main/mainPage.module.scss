@@ -129,6 +129,8 @@
             .texts {
                 .article {
                     @include article;
+                    position: relative;
+                    width: fit-content;
                     &::after {
                         @include adaptiveValue('width', 32, 21);
                         @include adaptiveValue('height', 32, 21);
@@ -137,7 +139,8 @@
                         background-image: url(./../../../static/img/mainPage/star.png);
                         background-size: contain;
                         background-repeat: no-repeat;
-                        margin: 0 0 .9vw 2.1vw;
+                        position: absolute;
+                        inset: max(-5%, -3px) max(-15%, -33px) auto auto;
                     }
                 }
                 .sign {
@@ -149,9 +152,9 @@
                 }
             }
             .allGoodsSign {
-                @media screen and (max-width: 500px) {
+                @media screen and (max-width: 899px) {
                     position: absolute;
-                    bottom: -20px;
+                    bottom: -25px;
                     right: 15px;
                 }
                 &::after {
@@ -304,7 +307,11 @@
 }
 .otherStuff {
     @include container;
-    margin-top: 7%;
+    margin-top: 133px;
+    overflow: hidden;
+    @media screen and (max-width: 1920px) {
+        margin-top: 7%;
+    }
     @media screen and (max-width: 1200px) {
         margin-top: 10%;
     }
@@ -466,11 +473,17 @@
     }
 }
 .orderKitContainer {
+    @media screen and (max-width: 1200px) {
+        grid-template-columns: 70% 30%;
+    }
     & > div {
         & > div:first-child { // .images container
             h2 {
-                @media screen and (min-width: 1501px) {
-                    width: 125%;
+                @media screen and (min-width: 900px) {
+                    width: 112%;
+                }
+                @media screen and (min-width: 769px) {
+                    width: 113%;
                 }
             }
         }

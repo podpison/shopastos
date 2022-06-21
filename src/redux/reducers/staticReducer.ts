@@ -1,6 +1,6 @@
 import { Dispatch } from "redux";
-import { itemsAPI } from "../api/api";
-import { ActionsType, RusEngArrayTextType, RusEngTextType } from "./store";
+import { itemsAPI } from "../../api/api";
+import { ActionsType, RusEngArrayTextType, RusEngTextType } from "../store";
 
 export interface IItemPopUp {
     description: RusEngTextType
@@ -30,7 +30,6 @@ export interface IWhatWeCanDo {
     img: string
     name: RusEngTextType
     content: {
-        name: RusEngTextType
         productImg: string
         productExampleImg: string
         description: RusEngTextType

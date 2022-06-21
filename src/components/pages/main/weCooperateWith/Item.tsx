@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { WeCooperateWithDataType } from "../../../../redux/staticReducer";
+import { WeCooperateWithDataType } from "../../../../redux/reducers/staticReducer";
 
 export const Item: React.FC<WeCooperateWithDataType> = ({img, link}) => {
     const { t } = useTranslation();

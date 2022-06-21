@@ -9,7 +9,8 @@ import { useAllGoods } from "../../../../hooks/useAllGoods";
 
 export const Carousel: React.FC = () => {
     let items = useAllGoods();
-    let Items = items.map((i, index) => <CarouselItem item={i} key={index} />);
+    let Items = [...items, ...items].map((i, index) => <CarouselItem item={i} key={index} />); // dev only
+    // let Items = items.map((i, index) => <CarouselItem item={i} key={index} />);
     const [currentSlide, setCurrentSlide] = useState(1);
 
     let slidesCount = Items ? Math.ceil(Items.length / 4) : 0;

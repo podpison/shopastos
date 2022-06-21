@@ -28,6 +28,7 @@
 }
 .basket {
     @include adaptiveValue('width', 46, 25);
+    @include decreaseSizeHover;
     cursor: pointer;
 }
 .header {
@@ -96,7 +97,7 @@
             grid-template-columns: 2fr 1fr 2fr 11%;
         }
         @media screen and (max-width: 500px) {
-            grid-template-columns: 39% 53% max-content;
+            grid-template-columns: 43% 48% max-content;
         }
         .logoContainer {
             @media screen and (max-width: 500px) {
@@ -113,7 +114,7 @@
         }
         .searchContainer {
             width: 86%;
-            margin-top: -6px;
+            box-sizing: border-box;
             height: 100%;
             border-width: calc(0.16vw + 1px);
             border-radius: 90px;
@@ -141,12 +142,16 @@
         .searchItem {
             @include sign;
             display: grid;
-            grid-template-columns: max-content 1fr max-content;
+            grid-template-columns: max-content 1fr 65px;
             gap: 15px;
             height: 50px;
             width: 100%;
+            font-family: 'gilroy';
             &:not(:first-child) {
                 margin-top: 5%;
+            }
+            .price {
+                margin-right: auto;
             }
             .img {
                 width: 50px;
@@ -158,7 +163,7 @@
                 grid-column: 2 / 4;
             }
             @media screen and (max-width: 500px) {
-                grid-column: 1;
+                grid-column: 1 / 3;
                 margin-right: auto;
                 width: 95%;
             }
@@ -241,6 +246,10 @@
                 align-items: center;
                 height: max(80px, calc(75px + 1.6vw));
                 max-height: 100px;
+                transition: opacity 0.2s;
+                &:hover {
+                    opacity: 0.9;
+                }
                 p {
                     z-index: 1;
                 }

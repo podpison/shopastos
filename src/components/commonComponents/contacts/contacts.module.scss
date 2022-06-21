@@ -6,6 +6,7 @@
         flex-direction: column;
         & > a {
             @include sign;
+            width: fit-content;
         }
         .email {
             text-decoration-line: underline;

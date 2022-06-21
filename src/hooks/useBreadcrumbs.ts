@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { breadcrumbsReducerActions } from "../redux/breadcrumbsReducer";
+import { breadcrumbsReducerActions } from "../redux/reducers/breadcrumbsReducer";
 import { RusEngTextType } from "../redux/store";
 
 export const useBreadcrumbs = (item: RusEngTextType, isCardPopUpOpen?: boolean) => {
@@ -12,6 +12,5 @@ export const useBreadcrumbs = (item: RusEngTextType, isCardPopUpOpen?: boolean) 
         return () => {
             dispatch(breadcrumbsReducerActions.setItemStauts(item, 'delete'));
         };
-        //@eslint-disable-next-line
-    }, []);
+    }, [dispatch]); //eslint-disable-line react-hooks/exhaustive-deps
 };

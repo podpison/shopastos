@@ -26,7 +26,7 @@ export const LanguageAndBasket: React.FC<Props> = ({closeBurger}) => {
 
     return <>
         <Link onClick={closeBurger} to={openBasket}>
-            <Badge anchorOrigin={{ vertical: 'top', horizontal: 'right' }} invisible={basketItemsLength === 1} badgeContent={basketItemsLength} color='success'><img className={c.basket} alt={t('alts.basket')} src={basketImg} /></Badge>
+            <Badge anchorOrigin={{ vertical: 'top', horizontal: 'right' }} invisible={basketItemsLength === 0} badgeContent={basketItemsLength} color='success'><img className={c.basket} alt={t('alts.basket')} src={basketImg} /></Badge>
         </Link>
         <div className={c.languages}>
             <p onClick={() => changeLanguage('rus')} className={currentLng === 'rus' ? c.active : ''}>{t('header.language.rus')}</p> / <p className={currentLng === 'eng' ? c.active : ''} onClick={() => changeLanguage('eng')}>{t('header.language.eng')}</p>

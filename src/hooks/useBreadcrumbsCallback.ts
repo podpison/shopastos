@@ -2,7 +2,7 @@ import { wordToPathHelper } from "../helpers/wordToPathHelper";
 import { getBreadcrumbsItemSelector } from "../redux/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { breadcrumbsReducerActions } from "../redux/breadcrumbsReducer";
+import { breadcrumbsReducerActions } from "../redux/reducers/breadcrumbsReducer";
 import { RusEngTextType } from "../redux/store";
 
 export const useBreadcrumbsCallback = () => {

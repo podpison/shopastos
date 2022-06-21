@@ -1,4 +1,4 @@
-import { IAllGoodsItem, IItem } from "../redux/staticReducer";
+import { IAllGoodsItem, IItem } from "../redux/reducers/staticReducer";
 import { wordToPathHelper } from "./wordToPathHelper";
 
 type GoodType = IAllGoodsItem | IItem | undefined

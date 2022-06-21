@@ -112,6 +112,7 @@
         .img {
             width: 100%;
             @media screen and (max-width: 1200px) {
+                display: none;
                 max-width: 250px;
                 position: absolute;
                 right: 5%;
@@ -160,17 +161,25 @@
             }
         }
         .contacts {
-            margin-top: 37px;
+            margin-top: 20px;
             @media screen and (max-width: 1920px) {
-                margin-top: 1.93vw;
-            }
-            @media screen and (max-width: 1200px) {
-                margin-top: 40px;
+                margin-top: 1.045vw;
             }
             a {
                 @include adaptiveValue('font-size', 24, 20);
-                width: fit-content;
             }
+        }
+    }
+    .FAQImg {
+        grid-column: 2;
+        grid-row: 1;
+        max-width: 250px;
+        margin-left: auto;
+        @media screen and (min-width: 1201px) {
+            display: none;
+        }
+        @media screen and (max-width: 768px) {
+            display: none;
         }
     }
     .userCredentialsFormContainer {
@@ -181,16 +190,16 @@
         .contactUsArticle {
             @include article;
             @media screen and (max-width: 1200px) {
-                margin-top: 6.1%;
+                margin-top: 3%;
             }
             @media screen and (max-width: 768px) {
                 margin-top: 50px;
             }
         }
         .userCredentialsForm {
-            margin-top: 28.6px;
+            margin-top: 15.36px;
             @media screen and (max-width: 1920px) {
-                margin-top: 1.5vw;
+                margin-top: 0.8vw;
             }
         }
     }

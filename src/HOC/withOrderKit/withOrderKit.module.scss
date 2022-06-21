@@ -10,11 +10,11 @@
 }
 
 .orderKitContainer {
+    @include defaultMargin;
     background-image: url(./../../static/img/commonComponents/WithOrderKitBackground.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
     width: 100vw;
-    margin-top: 4%;
     @media screen and (max-width: 899px) {
         margin-top: 40px;
     }
@@ -76,6 +76,7 @@
             .kitExpample {
                 @include kitExpampleContainerItem(23.2vw, 490px);
                 z-index: 3;
+                transform: rotate(2deg);
                 @media screen and (max-width: 768px) {
                     width: 240px;
                     height: 240px;
@@ -103,6 +104,12 @@
                 border-radius: 15px;
                 transform: rotate(-15deg);
                 opacity: 0.5;
+                @media screen and (max-width: 1700px) {
+                    top: 37%;
+                }
+                @media screen and (max-width: 1500px) {
+                    top: 40%;
+                }
                 @media screen and (max-width: 768px) {
                     width: 180px;
                     height: 180px;

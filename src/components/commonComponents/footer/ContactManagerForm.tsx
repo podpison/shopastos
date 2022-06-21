@@ -4,9 +4,10 @@ import * as Yup from "yup";
 import c from "./footer.module.scss";
 import ArrowIcon from "@mui/icons-material/ArrowForward";
 import { useDispatch } from "react-redux";
-import { setNewManagerClient } from "../../../redux/customerReducer";
+import { setNewManagerClient } from "../../../redux/reducers/customerReducer";
 import { Button } from "../button/Button";
 import { useTranslation } from "react-i18next";
+import { alertReducerActions } from "../../../redux/reducers/alertReducer";
 
 const initialValues = { phone: '' };
 
@@ -27,7 +28,15 @@ export const ContactManagerForm: React.FC = () => {
             validateOnBlur={false}
             validateOnChange={false}
             onSubmit={(values, { validateForm, resetForm }) => {
-                validateForm();
+                validateForm().then((errors) => {
+                    console.log(errors)
+                    if ('phone' in errors) {
+                        dispatch(alertReducerActions.setAlertType('error'));
+                        return false;
+                    }
+                    dispatch(alertReducerActions.setAlertType('success'));
+                    return true
+                })
                 dispatch(setNewManagerClient(values));
                 resetForm();
             }}

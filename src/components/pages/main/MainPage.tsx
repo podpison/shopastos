@@ -5,11 +5,11 @@ import { WeCooperateWith } from "./weCooperateWith/WeCooperateWith";
 import { OrderCustomMerch } from "./../../commonComponents/orderCustormMerch/OrderCustomMerch";
 
 export const MainPage: React.FC = () => {
-    return <div>
+    return <section>
         <MostPopularGoods />
         <Kits />
         <OtherStuff />
         <OrderCustomMerch />
         <WeCooperateWith />
-    </div>
+    </section>
 };

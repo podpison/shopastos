@@ -1,11 +1,11 @@
 import { Modal, Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
-import { IItemPopUp } from "../../../redux/staticReducer";
+import { IItemPopUp } from "../../../redux/reducers/staticReducer";
 import ExpandIcon from "@mui/icons-material/ExpandMore";
 import Carousel from "react-slick";
 import c from "./cards.module.scss";
 import { Breadcrumbs } from "../breadcrumbs/Breadcrumbs";
 import { useDispatch } from "react-redux";
-import { customerReducerActions } from "../../../redux/customerReducer";
+import { customerReducerActions } from "../../../redux/reducers/customerReducer";
 import { RusEngTextType } from "../../../redux/store";
 import closeImg from "./../../../static/img/commonComponents/close.png";
 import { useModalStatus } from "../../../hooks/useModalStatus";
@@ -17,7 +17,6 @@ import { useEffect, useState } from "react";
 import { useBreadcrumbsCallback } from "./../../../hooks/useBreadcrumbsCallback";
 
 type Props = {
-    open: boolean
     price: number
     name: RusEngTextType
     popUpData: IItemPopUp
@@ -26,10 +25,10 @@ type Props = {
         subcategory: RusEngTextType
     } | null
 }
-export const PopUp: React.FC<Props> = ({ open, price, name, popUpData, categoryAndSubcategory }) => {
+export const PopUp: React.FC<Props> = ({ price, name, popUpData, categoryAndSubcategory }) => {
     let { characteristics, description, images, sizes } = popUpData;
     const breadcrumbsCallback = useBreadcrumbsCallback();
-    useBreadcrumbs(name, open);
+    useBreadcrumbs(name, true);
     const { t } = useTranslation();
     const dispatch = useDispatch();
     const closeModal = useModalStatus('close', 'item');
@@ -55,7 +54,7 @@ export const PopUp: React.FC<Props> = ({ open, price, name, popUpData, categoryA
     };
     let Sizes = sizes.map((s, index) => <li onClick={() => setCurrentSize(s)} className={currentSize === s ? `${c.size} ${c.activeSize}` : c.size} key={index}>{s}</li>);
 
-    return <Modal sx={{overflowY: 'scroll'}} disableScrollLock={false} className={c.withPopUpContainer} onClose={closeModal} open={open}>
+    return <Modal sx={{overflowY: 'scroll'}} disableScrollLock={false} className={c.withPopUpContainer} onClose={closeModal} open={true}>
         <div className={c.withPopUp}>
             <img onClick={closeModal} className={c.closeIcon} alt={t('alts.close')} src={closeImg} />
             <Carousel className={c.carousel} customPaging={customPaging} dots infinite={false} >

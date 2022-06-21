@@ -15,7 +15,7 @@ export const SewingItemHeader: React.FC = () => {
     let item = useSelector(getWhatWeCanSewSelector).find(i => pathname.includes(i.name.eng.toLowerCase()));
     let name = {rus: '', eng: ''}, description = {rus: '', eng: ''}, productImg = '', sizes = [] as string[];
     if (item !== undefined) {
-        name = item.content.name; description = item.content.description; productImg = item.content.productImg; sizes = item.content.sizes;
+        name = item.name; description = item.content.description; productImg = item.content.productImg; sizes = item.content.sizes;
     }
     useBreadcrumbs(name);
     let avaliableSizes = sizes?.map((i, index) => <li className={c.size} key={index}>{i}</li>);

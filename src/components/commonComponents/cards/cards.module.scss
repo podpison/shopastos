@@ -45,6 +45,7 @@
                     color: #C4C4C4;
                 }
                 .basket {
+                    @include decreaseSizeHover;
                     cursor: pointer;
                     img {
                         @include adaptiveValue('width', 45, 34);
