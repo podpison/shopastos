@@ -1,3 +1,4 @@
+import { useLayoutEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import Carousel from "react-slick";
@@ -41,12 +42,19 @@ const responsive = [
 
 export const WeCooperateWith: React.FC = () => {
     useStaticItems("weCooperateWithData");
-    let Items = useSelector(getWeCooperateWithDataSelector)?.map((i, index) => <Item {...i} key={index} />);
     const { t } = useTranslation();
+    const carouselRef = useRef<any>(null);
+    let Items = useSelector(getWeCooperateWithDataSelector)?.map((i, index) => <Item {...i} key={index} />);
+
+    useLayoutEffect(() => {
+        setTimeout(() => {
+            window.innerWidth <= 1500 && carouselRef?.current?.slickPrev();
+        }, 2000)
+    }, []);
 
     return <div className={c.weCooperateWithContainer}>
         <h3 className={c.article}>{t('mainPage.weCooperateWith.article')}</h3>
-        <Carousel swipe={false} responsive={responsive} initialSlide={1} slidesToShow={5} slidesToScroll={5} arrows infinite={false} dots={false}>
+        <Carousel ref={carouselRef} className={c.carousel} swipe={false} responsive={responsive} slidesToShow={5} slidesToScroll={5} arrows infinite={false} dots={false}>
             {Items}
         </Carousel>
     </div>

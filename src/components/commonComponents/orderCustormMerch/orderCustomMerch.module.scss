@@ -12,14 +12,14 @@
     background-size: 100% calc(100% + 55px);
     background-repeat: no-repeat;
     overflow: hidden;
-    padding-bottom: 65px;
+    padding-bottom: 125px;
     @media screen and (max-width: 1200px) {
-        background-size: 165% 111%;
+        background-size: 165% 105%;
         background-position-x: 10%;
     }
     @media screen and (max-width: 899px) {
         margin-top: 40px;
-        background-size: 222% 111%;
+        background-size: 222% 105%;
     }
     @media screen and (max-width: 768px) {
         background-size: 350% 78%;

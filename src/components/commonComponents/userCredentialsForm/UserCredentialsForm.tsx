@@ -6,7 +6,6 @@ import { setNewManagerClient } from "../../../redux/reducers/customerReducer";
 import c from "./userCredentialsForm.module.scss";
 import { Button } from "../button/Button";
 import { useTranslation } from "react-i18next";
-import { alertReducerActions } from "../../../redux/reducers/alertReducer";
 
 const initialValues = { name: '', email: '', phone: '' };
 export type OrderCustomMerchFormType = typeof initialValues;
@@ -41,17 +40,10 @@ export const UserCredentialsForm: React.FC<Props> = ({ className, formClassName,
             validateOnBlur={false}
             validateOnChange={false}
             onSubmit={(values, { validateForm, resetForm }) => {
-                validateForm().then((errors) => {
-                    console.log(errors)
-                    if ('name' in errors || 'email' in errors || 'phone' in errors) {
-                        dispatch(alertReducerActions.setAlertType('error'));
-                    } else {
-                        dispatch(alertReducerActions.setAlertType('success'));
-                    }
-                })
+                validateForm()
                 callback && callback();
-                resetForm();
                 dispatch(setNewManagerClient(values));
+                resetForm();
             }}
         >
             {({ values, errors, handleChange, handleSubmit }) => {

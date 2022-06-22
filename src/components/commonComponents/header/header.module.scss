@@ -247,6 +247,9 @@
                 height: max(80px, calc(75px + 1.6vw));
                 max-height: 100px;
                 transition: opacity 0.2s;
+                @media screen and (max-width: 1200px) {
+                    height: min(100px, 8vw);
+                }
                 &:hover {
                     opacity: 0.9;
                 }
@@ -290,6 +293,11 @@
         .mobileNavLinks {
             flex-direction: column;
             align-items: center;
+            .categories {
+                & > div {
+                    display: none!important;
+                }
+            }
             a, & > ul {
                 margin-top: 15px;
                 .active {

@@ -21,7 +21,7 @@ export const PhoneNav: React.FC<Props> = ({ burgerStatus, setBurgerStatus }) => 
         <div className={c.languageAndBasket}>
             <LanguageAndBasket closeBurger={closeBurger} />
         </div>
-        <NavLinks mainPageLink closeBurger={closeBurger} className={c.mobileNavLinks} />
+        <NavLinks categoriesClassName={c.categories} mainPageLink closeBurger={closeBurger} className={c.mobileNavLinks} />
         <Contacts closeBurger={closeBurger} className={c.contacts} />
     </SwipeableDrawer>
 };

@@ -11,10 +11,10 @@ export const Alert: React.FC = () => {
   const dispatch = useDispatch();
   let { alertType } = useSelector(getAlertDataSelector);
   
-  const closeAlert = () => alertReducerActions.setIsOpen(false);
+  const closeAlert = () => dispatch(alertReducerActions.setIsOpen(false));
   useEffect(() => {
-    setTimeout(() => dispatch(closeAlert()), 10000)
-  }, [dispatch]);
+    setTimeout(() => closeAlert(), 10000)
+  }, [dispatch, closeAlert]);
 
   return <MUIAlert className={c.alert} onClose={closeAlert} severity={alertType}>{t(`header.alert.${alertType}`)}</MUIAlert>
 };

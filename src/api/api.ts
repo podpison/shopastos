@@ -24,8 +24,11 @@ export const itemsAPI = {
 export const customerAPI = {
   setNewManagerClient: async (data: SetNewManagerClientValueType) => {
     const type = data.hasOwnProperty('basketItems') ? 'orderItems' : data.hasOwnProperty('email') ? 'customeMerch' : 'helpWithQuestion';
-
     let currentTime = new Date().toLocaleString();
-    addDoc(collection(fs, 'managerClients'), {...data, sentAt: currentTime, type});
+    if (window.navigator.onLine) { // detect wheather user is online or not
+      addDoc(collection(fs, 'managerClients'), {...data, sentAt: currentTime, type});
+      return true;
+    };
+    return false;
   }
 };

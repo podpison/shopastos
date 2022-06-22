@@ -7,7 +7,7 @@ import { IAllGoodsItem, IItem } from "../../../redux/reducers/staticReducer";
 import { Link } from "react-router-dom";
 import { currentLanguageHelper } from "../../../helpers/currentLanguageHelper";
 import { pathToGoodHelper } from "../../../helpers/pathToGoodHelder";
-import { useLayoutEffect } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { useAllGoods } from "../../../hooks/useAllGoods";
 
 type Props = {
@@ -23,22 +23,20 @@ export const Search: React.FC<Props> = ({ hideSearch, className, isSearchShown }
     useStaticItems('kitItems');
     let items = useAllGoods(null);
     const { t } = useTranslation();
+    const textFieldRef = useRef<HTMLInputElement>(null)
     let currentLanguage = currentLanguageHelper<null>(null);
     const filterOptions = createFilterOptions({
         stringify: (option: ItemType) => option.name[currentLanguage] + option.price
     });
 
     useLayoutEffect(() => {
-        if (isSearchShown) {
-            let textField = document.getElementById('searchTextfield');
-            textField?.querySelector('input')?.focus()
-        }
+        isSearchShown && textFieldRef.current?.click()
     }, [isSearchShown])
 
     return <Autocomplete value={null} className={`${c.searchContainer} ${className}`} options={items} disablePortal filterOptions={filterOptions}
         getOptionLabel={option => option.name ? currentLanguageHelper(option.name) : ''}
         renderInput={
-            (params) => <TextField onBlur={window.innerWidth <= 899 ? hideSearch : undefined} {...params} autoComplete='off' className={c.textField} placeholder={t('header.computerHeader.search')}
+            (params) => <TextField ref={textFieldRef} onBlur={window.innerWidth <= 899 ? hideSearch : undefined} {...params} autoComplete='off' className={c.textField} placeholder={t('header.computerHeader.search')}
                 InputProps={{
                     ...params.InputProps,
                     startAdornment: (
@@ -49,7 +47,7 @@ export const Search: React.FC<Props> = ({ hideSearch, className, isSearchShown }
                             {params.InputProps.startAdornment}
                         </>
                     )
-                }} id='searchTextfield' />
+                }} />
         }
         renderOption={(props, i) => {
             let path = pathToGoodHelper(i)

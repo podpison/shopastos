@@ -132,9 +132,11 @@ $grayColor: #454747;
 }
 
 html {
-  overflow-x: hidden;
   body {
     color: $mainBlackColor;
     font-family: 'gilroy';
+  }
+  .app {
+    overflow-x: hidden;
   }
 }

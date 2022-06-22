@@ -1,6 +1,7 @@
 import { Dispatch } from "redux";
 import { customerAPI } from "../../api/api";
 import { ActionsType, RusEngTextType } from "../store";
+import { alertReducerActions } from "./alertReducer";
 
 export type BasketItemType = {
     img: string
@@ -58,5 +59,6 @@ export const customerReducerActions = {
 export type SetNewManagerClientValueType = UserCredentialsType | { phone: string } | (UserCredentialsType & { basketItems: BasketItemType[] })
 
 export const setNewManagerClient = (data: SetNewManagerClientValueType) => async (dispatch: Dispatch) => {
-    customerAPI.setNewManagerClient(data);
+    let response = await customerAPI.setNewManagerClient(data);
+    dispatch(alertReducerActions.setAlertType(response ? 'success' : 'error'))
 };

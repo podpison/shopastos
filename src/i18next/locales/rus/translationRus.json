@@ -7,10 +7,6 @@
                 "advantage1": "Высокое качество ONLY",
                 "advantage2": "Поддержка менеджера 24/7",
                 "advantage3": "Выполнение заказа в Turbo-режиме"
-            },
-            "alert": {
-                "success": "Операция прошла успешно",
-                "error": "Что-то пошло не так..."
             }
         },
         "mostPopularGoods": {
@@ -173,6 +169,10 @@
     "header": {
         "computerHeader": {
             "search": "Поиск"
+        },
+        "alert": {
+            "success": "Операция прошла успешно",
+            "error": "Что-то пошло не так..."
         },
         "language": {
             "rus": "РУС",
