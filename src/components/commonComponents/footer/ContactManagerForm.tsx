@@ -28,15 +28,7 @@ export const ContactManagerForm: React.FC = () => {
             validateOnBlur={false}
             validateOnChange={false}
             onSubmit={(values, { validateForm, resetForm }) => {
-                validateForm().then((errors) => {
-                    console.log(errors)
-                    if ('phone' in errors) {
-                        dispatch(alertReducerActions.setAlertType('error'));
-                        return false;
-                    }
-                    dispatch(alertReducerActions.setAlertType('success'));
-                    return true
-                })
+                validateForm()
                 dispatch(setNewManagerClient(values));
                 resetForm();
             }}
@@ -44,7 +36,7 @@ export const ContactManagerForm: React.FC = () => {
             {({ values, errors, handleChange, handleSubmit }) => {
                 return <form className={`${c.form} ${!!errors.phone && c.error}`} onSubmit={handleSubmit}>
                     <TextField className={c.textField} variant="outlined" helperText={errors.phone && t(errors.phone)} error={!!errors.phone} value={values.phone} onChange={handleChange} placeholder={t('userCredentialsForm.fields.phone')} type='tel' name='phone' />
-                    <Button className={c.button} color='blue' disabled={!!errors.phone}>
+                    <Button className={c.button} color='blue'>
                         <ArrowIcon className={c.arrow} />
                     </Button>
                 </form>
