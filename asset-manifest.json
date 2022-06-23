@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/shopastos/static/css/main.eb852bb0.css",
-    "main.js": "/shopastos/static/js/main.96c595c3.js",
+    "main.css": "/shopastos/static/css/main.284a64fe.css",
+    "main.js": "/shopastos/static/js/main.6c12d86c.js",
     "static/css/701.83e023fa.chunk.css": "/shopastos/static/css/701.83e023fa.chunk.css",
     "static/js/701.61b2bdf3.chunk.js": "/shopastos/static/js/701.61b2bdf3.chunk.js",
     "static/css/828.6e75c101.chunk.css": "/shopastos/static/css/828.6e75c101.chunk.css",
@@ -43,8 +43,8 @@
     "index.html": "/shopastos/index.html",
     "static/media/getFetch.cjs": "/shopastos/static/media/getFetch.c780682470504fffbd04.cjs",
     "static/media/wave1.svg": "/shopastos/static/media/wave1.4ae987f3d360a0143503.svg",
-    "main.eb852bb0.css.map": "/shopastos/static/css/main.eb852bb0.css.map",
-    "main.96c595c3.js.map": "/shopastos/static/js/main.96c595c3.js.map",
+    "main.284a64fe.css.map": "/shopastos/static/css/main.284a64fe.css.map",
+    "main.6c12d86c.js.map": "/shopastos/static/js/main.6c12d86c.js.map",
     "701.83e023fa.chunk.css.map": "/shopastos/static/css/701.83e023fa.chunk.css.map",
     "701.61b2bdf3.chunk.js.map": "/shopastos/static/js/701.61b2bdf3.chunk.js.map",
     "828.6e75c101.chunk.css.map": "/shopastos/static/css/828.6e75c101.chunk.css.map",
@@ -64,7 +64,7 @@
     "47.34157e79.chunk.js.map": "/shopastos/static/js/47.34157e79.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.eb852bb0.css",
-    "static/js/main.96c595c3.js"
+    "static/css/main.284a64fe.css",
+    "static/js/main.6c12d86c.js"
   ]
 }
